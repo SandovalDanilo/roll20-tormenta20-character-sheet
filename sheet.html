@@ -156,7 +156,7 @@
             <div class="f-2 pontos">
               <input type="number" name="attr_mana" />
               <div>Atuais</div>
-            </div>            
+            </div>
           </div>
         </div>
       </div>
@@ -787,7 +787,7 @@
     const newMod = Math.floor((valor - 10) / 2);
     let newAttrs = {}
     newAttrs[atributo] = newMod.toString();
-    
+
     setAttrs(newAttrs);
   });
 
@@ -810,7 +810,8 @@
       repeating_ataques_ataqueBonusInt: parseInt(e.newValue) || 0
     });
   });
-  
+
+  // Pericias
   const onChangeAtributoMod = Atributos.map(a => "change:"+a+"_mod").join(" ");
   const attrsPericiasAtributos = Pericias.map(a => a+"_atributo");
   on(onChangeAtributoMod, function(e) {
@@ -824,12 +825,12 @@
           newAttrs[pericia+"_atributo_mod"] = e.newValue;
         }
       });
-      
+
       setAttrs(newAttrs);
     });
   });
 
-  const onChangePericiaAtributo = Pericias.map(a => "change:"+a+"_atributo").join(" ");
+  const onChangePericiaAtributo = Pericias.map(p => "change:"+p+"_atributo").join(" ");
   on(onChangePericiaAtributo, function(e) {
     getAttrs(["for_mod", "des_mod", "con_mod", "int_mod", "sab_mod", "car_mod"], function(values) {
       let newAttrs = {};
@@ -840,6 +841,41 @@
     });
   });
 
+  on("change:nivel", function(e) {
+    let newAttrs = {};
+
+    Pericias.forEach((pericia) => {
+      newAttrs[pericia+"_metade_nivel"] = Math.floor(parseInt(e.newValue) / 2);
+    });
+
+    setAttrs(newAttrs);
+  });
+
+  const recalculaTotalPericia = (pericia) => {
+    getAttrs([pericia+"_metade_nivel", pericia+"_atributo_mod", pericia+"_bonus_treino", pericia+"_outros"], function(values) {
+      let newAttrs = {};
+  
+      newAttrs[pericia+"_total"] = Object.values(values).reduce((a,i) => a+parseInt(i), 0);
+  
+      setAttrs(newAttrs);
+    });
+  }
+
+  const onChangePericiaAtributoMod = Pericias.map(p => "change:"+p+"_atributo_mod").join(" ");
+  on(onChangePericiaAtributoMod, function(e) {
+    const pericia = e.sourceAttribute.split("_atributo_mod")[0];
+
+    recalculaTotalPericia(pericia);
+  });
+
+  const onChangePericiaMetadeNivel = Pericias.map(p => "change:"+p+"_metade_nivel").join(" ");
+  on(onChangePericiaMetadeNivel, function(e) {
+    const pericia = e.sourceAttribute.split("_metade_nivel")[0];
+
+    recalculaTotalPericia(pericia);
+  });
+
+  // Valores iniciais
   on("sheet:opened", function() {
     getAttrs(["first_open"], function(values) {
       if(values.first_open == "1") {
