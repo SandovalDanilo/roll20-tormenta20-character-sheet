@@ -213,9 +213,9 @@
                 <th class="simbolo"></th>
                 <th>Mod. de Destreza</th>
                 <th class="simbolo"></th>
-                <th>Bônus de Armadura</th>
+                <th>Bônus Armadura</th>
                 <th class="simbolo"></th>
-                <th>Bônus de Escudo</th>
+                <th>Bônus Escudo</th>
                 <th class="simbolo"></th>
                 <th>Outros</th>
               </tr>
@@ -804,12 +804,33 @@
   });
 
   on("change:repeating_ataques:ataqueBonus", function(e) {
-    console.log(e);
-
     setAttrs({
       repeating_ataques_ataqueBonusInt: parseInt(e.newValue) || 0
     });
   });
+
+  // Defesa
+  on("change:armadura_defesa change:escudo_defesa", e => {
+    const origem_defesa = e.sourceAttribute.split("_defesa")[0];
+
+    setAttrs({
+      ["defesa_"+origem_defesa]: e.newValue
+    });
+  })
+
+  on("change:des_mod", e => {
+    setAttrs({
+      "defesa_destreza": e.newValue
+    });
+  })
+
+  on("change:defesa_destreza change:defesa_armadura change:defesa_escudo change:defesa_outros", e => {
+    getAttrs(["defesa_destreza",  "defesa_armadura",  "defesa_escudo",  "defesa_outros"], values => {
+      setAttrs({
+        ["defesa_total"]: Object.values(values).reduce((a,i) => a+parseInt(i), 0) + 10
+      });
+    })
+  })
 
   // Pericias
   const onChangeAtributoMod = Atributos.map(a => "change:"+a+"_mod").join(" ");
@@ -862,11 +883,9 @@
 
   const recalculaTotalPericia = (pericia) => {
     getAttrs([pericia+"_metade_nivel", pericia+"_atributo_mod", pericia+"_bonus_treino", pericia+"_outros"], function(values) {
-      let newAttrs = {};
-  
-      newAttrs[pericia+"_total"] = Object.values(values).reduce((a,i) => a+parseInt(i), 0);
-  
-      setAttrs(newAttrs);
+      setAttrs({
+        [pericia+"_total"]: Object.values(values).reduce((a,i) => a+parseInt(i), 0)
+      });
     });
   }
 

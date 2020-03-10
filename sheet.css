@@ -287,8 +287,15 @@
   vertical-align: bottom;
 }
 
-.sheet-Defesa table tbody td input {
+.sheet-Defesa table tbody td input[type=number] {
   width: 80%;
+  text-align: center;
+  font-size: 16px;
+}
+
+.sheet-Defesa table tbody td span {
+  font-size: 16px;
+  margin: 0 3px;
 }
 
 .sheet-Armadura {
@@ -315,11 +322,13 @@
 .sheet-Armadura table tbody td input[type=text] {
   width: 95%;
   margin-left: 0;
+  padding-bottom: 1px;
 }
 
 .sheet-Armadura table tbody td input[type=number] {
   width: 80%;
   text-align: center;
+  padding-bottom: 1px;
 }
 
 /* === HABILIDADES / MAGIAS === */
