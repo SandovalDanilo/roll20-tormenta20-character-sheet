@@ -1,0 +1,882 @@
+<div class="Ficha">
+  <input type="hidden" name="attr_first_open" value="1" />
+
+  <div class="Header d-flex">
+    <div class="basic-info f-2">
+      <div class="d-flex">
+        <div class="input-wrapper f-1 nome">
+          <label>
+            <input type="text" name="attr_character_name" />
+            <div>Nome do Personagem</div>
+          </label>
+        </div>
+
+        <div class="input-wrapper f-1 jogador">
+          <label>
+            <input type="text" name="attr_jogador" />
+            <div>Jogador</div>
+          </label>
+        </div>
+
+        <div class="input-wrapper f-1 divindade">
+          <label>
+            <input type="text" name="attr_divindade" />
+            <div>Divindade</div>
+          </label>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="input-wrapper f-3 raca">
+          <label>
+            <input type="text" name="attr_raca" />
+            <div>Raça</div>
+          </label>
+        </div>
+
+        <div class="input-wrapper f-3 origem">
+          <label>
+            <input type="text" name="attr_origem" />
+            <div>Origem</div>
+          </label>
+        </div>
+
+        <div class="input-wrapper f-2 classe">
+          <label>
+            <input type="text" name="attr_classe" />
+            <div>Classe</div>
+          </label>
+        </div>
+
+        <div class="input-wrapper f-1 nivel">
+          <label>
+            <input type="number" name="attr_nivel" />
+            <div>Nível</div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo f-1">
+      Tormenta20
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div class="f-6">
+      <div class="Atributos d-flex">
+        <div class="d-flex f-1 fd-col">
+          <div class="box f-1 d-flex">
+            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Força}} {{Resultado=[[1d20+@{for_mod}]]}}">
+              <div class="nome-atributo">FOR</div>
+              <input type="hidden" name="attr_for_mod" value="0" />
+              <input type="text" class="modificador" readonly="true" name="attr_for_mod_sinalizado" value="0" />
+            </button>
+          </div>
+          <input type="number" class="f-1 atributo" name="attr_for" value="10" />
+        </div>
+
+        <div class="d-flex f-1 fd-col">
+          <div class="box f-1 d-flex">
+            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Destreza}} {{Resultado=[[1d20+@{des_mod}]]}}">
+              <div class="nome-atributo">DES</div>
+              <input type="hidden" name="attr_des_mod" value="0" />
+              <input type="text" class="modificador" readonly="true" name="attr_des_mod_sinalizado" value="0" />
+            </button>
+          </div>
+          <input type="number" class="f-1 atributo" name="attr_des" value="10" />
+        </div>
+
+        <div class="d-flex f-1 fd-col">
+          <div class="box f-1 d-flex">
+            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Constituição}} {{Resultado=[[1d20+@{con_mod}]]}}">
+              <div class="nome-atributo">CON</div>
+              <input type="hidden" name="attr_con_mod" value="0" />
+              <input type="text" class="modificador" readonly="true" name="attr_con_mod_sinalizado" value="0" />
+            </button>
+          </div>
+          <input type="number" class="f-1 atributo" name="attr_con" value="10" />
+        </div>
+
+        <div class="d-flex f-1 fd-col">
+          <div class="box f-1 d-flex">
+            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Inteligência}} {{Resultado=[[1d20+@{int_mod}]]}}">
+              <div class="nome-atributo">INT</div>
+              <input type="hidden" name="attr_int_mod" value="0" />
+              <input type="text" class="modificador" readonly="true" name="attr_int_mod_sinalizado" value="0" />
+            </button>
+          </div>
+          <input type="number" class="f-1 atributo" name="attr_int" value="10" />
+        </div>
+
+        <div class="d-flex f-1 fd-col">
+          <div class="box f-1 d-flex">
+            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Sabedoria}} {{Resultado=[[1d20+@{sab_mod}]]}}">
+              <div class="nome-atributo">SAB</div>
+              <input type="hidden" name="attr_sab_mod" value="0" />
+              <input type="text" class="modificador" readonly="true" name="attr_sab_mod_sinalizado" value="0" />
+            </button>
+          </div>
+          <input type="number" class="f-1 atributo" name="attr_sab" value="10" />
+        </div>
+
+        <div class="d-flex f-1 fd-col">
+          <div class="box f-1 d-flex">
+            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Carisma}} {{Resultado=[[1d20+@{car_mod}]]}}">
+              <div class="nome-atributo">CAR</div>
+              <input type="hidden" name="attr_car_mod" value="0" />
+              <input type="text" class="modificador" readonly="true" name="attr_car_mod_sinalizado" value="0" />
+            </button>
+          </div>
+          <input type="number" class="f-1 atributo" name="attr_car" value="10" />
+        </div>
+      </div>
+
+      <div class="VidaMana d-flex">
+        <div class="f-1 Vida">
+          <div class="title">Pontos de Vida</div>
+          <div class="d-flex">
+            <div class="f-1 pontos">
+              <input type="number" name="attr_vida_max" />
+              <div>Máximos</div>
+            </div>
+            <div class="f-2 pontos">
+              <input type="number" name="attr_vida" />
+              <div>Atuais</div>
+            </div>
+          </div>
+        </div>
+        <div class="f-1 Mana">
+          <div class="title">Pontos de Mana</div>
+          <div class="d-flex">
+            <div class="f-1 pontos">
+              <input type="number" name="attr_mana_max" />
+              <div>Máximos</div>
+            </div>
+            <div class="f-2 pontos">
+              <input type="number" name="attr_mana" />
+              <div>Atuais</div>
+            </div>            
+          </div>
+        </div>
+      </div>
+
+      <div class="Ataques">
+        <div class="ataques-header d-flex">
+          <div class="f-2 title">
+            Ataques
+            <input type="checkbox" class="editing_pencil" name="attr_editing_ataque" value="1" />
+          </div>
+          <div class="f-1">Bônus de Ataque</div>
+          <div class="f-1">Dano</div>
+          <div class="f-1">Crítico</div>
+          <div class="f-1">Tipo</div>
+          <div class="f-1">Alcance</div>
+        </div>
+        <fieldset class="repeating_ataques">
+          <div class="d-flex each-ataque">
+            <div class="f-2 ataque-nome">
+              <input type="checkbox" name="attr_editingAtaqueEnabled" checked value="1" />
+              <input type="text" name="attr_ataqueNome" value="Ataque" />
+              <button type="roll" class="ataque-nome-button" value="&{template:default} {{name=Ataque}} {{Resultado=[[1d20+@{ataqueBonusInt}]]}} {{Dano=[[@{ataqueDano}]]}} {{Tipo=@{ataqueTipo}}} {{Alcance=@{ataqueAlcance}}}">
+                <span name="attr_ataqueNome"></span>
+              </button>
+            </div>
+            <div class="f-1">
+              <input type="text" name="attr_ataqueBonus" />
+              <input type="hidden" name="attr_ataqueBonusInt" />
+            </div>
+            <div class="f-1">
+              <input type="text" name="attr_ataqueDano" />
+            </div>
+            <div class="f-1">
+              <input type="text" name="attr_ataqueCritico" />
+            </div>
+            <div class="f-1">
+              <input type="text" name="attr_ataqueTipo" />
+            </div>
+            <div class="f-1">
+              <input type="text" name="attr_ataqueAlcance" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="d-flex stretch">
+        <div class="f-1 Defesa">
+          <table>
+            <thead>
+              <tr>
+                <th class="title">Defesa</th>
+                <th class="simbolo"></th>
+                <th></th>
+                <th class="simbolo"></th>
+                <th>Mod. de Destreza</th>
+                <th class="simbolo"></th>
+                <th>Bônus de Armadura</th>
+                <th class="simbolo"></th>
+                <th>Bônus de Escudo</th>
+                <th class="simbolo"></th>
+                <th>Outros</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="number" name="attr_defesa_total" /></td>
+                <td>=</td>
+                <td><span>10</span></td>
+                <td>+</td>
+                <td><input type="number" name="attr_defesa_destreza" /></td>
+                <td>+</td>
+                <td><input type="number" name="attr_defesa_armadura" /></td>
+                <td>+</td>
+                <td><input type="number" name="attr_defesa_escudo" /></td>
+                <td>+</td>
+                <td><input type="number" name="attr_defesa_outros" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="f-1 Armadura">
+          <table>
+            <thead>
+              <tr>
+                <th class="title">Armadura & Escudo</th>
+                <th>Defesa</th>
+                <th>Penalidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" name="attr_armadura_nome" /></td>
+                <td><input type="number" name="attr_armadura_defesa" /></td>
+                <td><input type="number" name="attr_armadura_penalidade" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" name="attr_escudo_nome" /></td>
+                <td><input type="number" name="attr_escudo_defesa" /></td>
+                <td><input type="number" name="attr_escudo_penalidade" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="Habilidades">
+        <div class="title">Habilidades e Magias</div>
+        <fieldset class="repeating_habilidades">
+          <div class="d-flex each-habilidade">
+            <div class="f-1 d-flex fd-col">
+              <div class="input-wrapper">
+                <input type="text" name="attr_habilidadeNome" placeholder="Fúria" />
+              </div>
+              <div class="input-wrapper">
+                <input type="text" name="attr_habilidadeOrigem" placeholder="Bárbaro 1" />
+              </div>
+            </div>
+            <div class="f-1 d-flex input-wrapper">
+              <textarea class="f-1" name="attr_habilidadeDescricao" placeholder="Você pode gastar 3 PM para invocar uma fúria selvagem, tornando-se temível em combate."></textarea>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="d-flex">
+        <div class="f-1">
+          <div class="Equipamento">
+            <div class="title">Equipamento</div>
+            <fieldset class="repeating_itens">
+              <div class="each-item d-flex">
+                <div class="f-3"><input type="text" name="attr_itemNome" /></div>
+                <div class="f-1"><input type="number" name="attr_itemQtd" /></div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="f-1">
+          <div class="Proficiencias">
+            <div class="title">Proficiências e Outras Características</div>
+            <div class="d-flex">
+              <textarea class="f-1" name="proficiencias"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-4">
+      <div class="Pericias">
+        <table>
+          <thead>
+            <tr>
+              <th class="pericias-title title" colspan="3">Perícias</th>
+              <th class="pericias-subtitle">Total</th>
+              <th class="pericias-subtitle" colspan="2">1/2 do Nível</th>
+              <th class="pericias-subtitle" colspan="2">Mod. de Atributo</th>
+              <th class="pericias-subtitle" colspan="2">Treino</th>
+              <th class="pericias-subtitle" colspan="2">Outros</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_acrobacia_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Acrobacia}} {{Resultado=[[1d20+@{acrobacia_total}]]}}">Acrobacia</button></td>
+              <td class="atributo-pericia"><select name="attr_acrobacia_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_acrobacia_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_acrobacia_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_acrobacia_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_acrobacia_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_acrobacia_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_adestramento_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Adestramento}} {{Resultado=[[1d20+@{adestramento_total}]]}}">Adestramento</button></td>
+              <td class="atributo-pericia"><select name="attr_adestramento_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_adestramento_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_adestramento_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_adestramento_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_adestramento_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_adestramento_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_atletismo_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Atletismo}} {{Resultado=[[1d20+@{atletismo_total}]]}}">Atletismo</button></td>
+              <td class="atributo-pericia"><select name="attr_atletismo_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_atletismo_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_atletismo_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_atletismo_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_atletismo_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_atletismo_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_atuacao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Atuação}} {{Resultado=[[1d20+@{atuacao_total}]]}}">Atuação</button></td>
+              <td class="atributo-pericia"><select name="attr_atuacao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_atuacao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_atuacao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_atuacao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_atuacao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_atuacao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_cavalgar_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Cavalgar}} {{Resultado=[[1d20+@{cavalgar_total}]]}}">Cavalgar</button></td>
+              <td class="atributo-pericia"><select name="attr_cavalgar_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_cavalgar_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_cavalgar_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_cavalgar_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_cavalgar_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_cavalgar_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_conhecimento_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Conhecimento}} {{Resultado=[[1d20+@{conhecimento_total}]]}}">Conhecimento</button></td>
+              <td class="atributo-pericia"><select name="attr_conhecimento_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_conhecimento_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_conhecimento_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_conhecimento_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_conhecimento_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_conhecimento_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_cura_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Cura}} {{Resultado=[[1d20+@{cura_total}]]}}">Cura</button></td>
+              <td class="atributo-pericia"><select name="attr_cura_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_cura_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_cura_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_cura_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_cura_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_cura_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_diplomacia_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Diplomacia}} {{Resultado=[[1d20+@{diplomacia_total}]]}}">Diplomacia</button></td>
+              <td class="atributo-pericia"><select name="attr_diplomacia_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_diplomacia_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_diplomacia_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_diplomacia_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_diplomacia_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_diplomacia_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_intuicao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Intuição}} {{Resultado=[[1d20+@{intuicao_total}]]}}">Intuição</button></td>
+              <td class="atributo-pericia"><select name="attr_intuicao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_intuicao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_intuicao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intuicao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intuicao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intuicao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_fortitude_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Fortitude}} {{Resultado=[[1d20+@{fortitude_total}]]}}">Fortitude</button></td>
+              <td class="atributo-pericia"><select name="attr_fortitude_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_fortitude_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_fortitude_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_fortitude_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_fortitude_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_fortitude_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_furtividade_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Furtividade}} {{Resultado=[[1d20+@{furtividade_total}]]}}">Furtividade</button></td>
+              <td class="atributo-pericia"><select name="attr_furtividade_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_furtividade_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_furtividade_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_furtividade_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_furtividade_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_furtividade_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_guerra_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Guerra}} {{Resultado=[[1d20+@{guerra_total}]]}}">Guerra</button></td>
+              <td class="atributo-pericia"><select name="attr_guerra_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_guerra_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_guerra_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_guerra_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_guerra_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_guerra_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_iniciativa_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Iniciativa}} {{Resultado=[[1d20+@{iniciativa_total}]]}}">Iniciativa</button></td>
+              <td class="atributo-pericia"><select name="attr_iniciativa_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_iniciativa_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_iniciativa_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_iniciativa_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_iniciativa_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_iniciativa_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_intuicao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Intuição}} {{Resultado=[[1d20+@{intuicao_total}]]}}">Intuição</button></td>
+              <td class="atributo-pericia"><select name="attr_intuicao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_intuicao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_intuicao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intuicao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intuicao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intuicao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_investigacao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Investigação}} {{Resultado=[[1d20+@{investigacao_total}]]}}">Investigação</button></td>
+              <td class="atributo-pericia"><select name="attr_investigacao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_investigacao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_investigacao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_investigacao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_investigacao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_investigacao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_jogatina_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Jogatina}} {{Resultado=[[1d20+@{jogatina_total}]]}}">Jogatina</button></td>
+              <td class="atributo-pericia"><select name="attr_jogatina_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_jogatina_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_jogatina_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_jogatina_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_jogatina_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_jogatina_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_ladinagem_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Ladinagem}} {{Resultado=[[1d20+@{ladinagem_total}]]}}">Ladinagem</button></td>
+              <td class="atributo-pericia"><select name="attr_ladinagem_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_ladinagem_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_ladinagem_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_ladinagem_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_ladinagem_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_ladinagem_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_luta_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Luta}} {{Resultado=[[1d20+@{luta_total}]]}}">Luta</button></td>
+              <td class="atributo-pericia"><select name="attr_luta_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_luta_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_luta_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_luta_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_luta_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_luta_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_misticismo_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Misticismo}} {{Resultado=[[1d20+@{misticismo_total}]]}}">Misticismo</button></td>
+              <td class="atributo-pericia"><select name="attr_misticismo_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_misticismo_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_misticismo_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_misticismo_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_misticismo_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_misticismo_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_navegacao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Navegação}} {{Resultado=[[1d20+@{navegacao_total}]]}}">Navegação</button></td>
+              <td class="atributo-pericia"><select name="attr_navegacao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_navegacao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_navegacao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_navegacao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_navegacao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_navegacao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_nobreza_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Nobreza}} {{Resultado=[[1d20+@{nobreza_total}]]}}">Nobreza</button></td>
+              <td class="atributo-pericia"><select name="attr_nobreza_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_nobreza_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_nobreza_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_nobreza_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_nobreza_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_nobreza_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_oficio_alquimia_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Ofício (Alquimia)}} {{Resultado=[[1d20+@{oficio_alquimia_total}]]}}">Ofício (Alquimia)</button></td>
+              <td class="atributo-pericia"><select name="attr_oficio_alquimia_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_oficio_alquimia_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_oficio_alquimia_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_alquimia_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_alquimia_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_alquimia_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_oficio_armeiro_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Ofício (Armeiro)}} {{Resultado=[[1d20+@{oficio_armeiro_total}]]}}">Ofício (Armeiro)</button></td>
+              <td class="atributo-pericia"><select name="attr_oficio_armeiro_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_oficio_armeiro_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_oficio_armeiro_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_armeiro_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_armeiro_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_armeiro_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_oficio_culinaria_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Ofício (Culinária)}} {{Resultado=[[1d20+@{oficio_culinaria_total}]]}}">Ofício (Culinária)</button></td>
+              <td class="atributo-pericia"><select name="attr_oficio_culinaria_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_oficio_culinaria_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_oficio_culinaria_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_culinaria_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_culinaria_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_oficio_culinaria_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_percepcao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Percepção}} {{Resultado=[[1d20+@{percepcao_total}]]}}">Percepção</button></td>
+              <td class="atributo-pericia"><select name="attr_percepcao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_percepcao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_percepcao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_percepcao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_percepcao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_percepcao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_pontaria_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Pontaria}} {{Resultado=[[1d20+@{pontaria_total}]]}}">Pontaria</button></td>
+              <td class="atributo-pericia"><select name="attr_pontaria_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_pontaria_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_pontaria_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_pontaria_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_pontaria_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_pontaria_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_reflexos_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Reflexos}} {{Resultado=[[1d20+@{reflexos_total}]]}}">Reflexos</button></td>
+              <td class="atributo-pericia"><select name="attr_reflexos_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_reflexos_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_reflexos_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_reflexos_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_reflexos_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_reflexos_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_religiao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Religião}} {{Resultado=[[1d20+@{religiao_total}]]}}">Religião</button></td>
+              <td class="atributo-pericia"><select name="attr_religiao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_religiao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_religiao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_religiao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_religiao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_religiao_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_sobrevivencia_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Sobrevivência}} {{Resultado=[[1d20+@{sobrevivencia_total}]]}}">Sobrevivência</button></td>
+              <td class="atributo-pericia"><select name="attr_sobrevivencia_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_sobrevivencia_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_sobrevivencia_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_sobrevivencia_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_sobrevivencia_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_sobrevivencia_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" name="attr_vontade_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Vontade}} {{Resultado=[[1d20+@{vontade_total}]]}}">Vontade</button></td>
+              <td class="atributo-pericia"><select name="attr_vontade_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_vontade_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_vontade_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_vontade_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_vontade_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_vontade_outros" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/worker">
+  const Atributos = ["for", "des", "con", "int", "sab", "car"];
+  const Pericias = ["acrobacia", "adestramento", "atletismo", "atuacao", "cavalgar", "conhecimento", "cura", "diplomacia", "enganacao", "fortitude", "furtividade", "guerra", "iniciativa", "intimidacao", "intuicao", "investigacao", "jogatina", "ladinagem", "luta", "misticismo", "navegacao", "nobreza", "oficio_alquimia", "oficio_armeiro", "oficio_culinaria", "percepcao", "pontaria", "reflexos", "religiao", "sobrevivencia", "vontade"];
+  const PericiasDefaultAtributos = ["des", "car", "for", "car", "des", "int", "sab", "car", "car", "con", "des", "int", "des", "car", "sab", "int", "car", "des", "for", "int", "sab", "int", "int", "int", "int", "sab", "des", "des", "sab", "sab", "sab"];
+
+  const onChangeAtributo = Atributos.map(a => "change:"+a).join(" ");
+  on(onChangeAtributo, function(e) {
+    const atributo = e.sourceAttribute + "_mod";
+    const valor = e.newValue || 10;
+    const newMod = Math.floor((valor - 10) / 2);
+    let newAttrs = {}
+    newAttrs[atributo] = newMod.toString();
+    
+    setAttrs(newAttrs);
+  });
+
+  on("change:editing_ataque", function(e) {
+    getSectionIDs("ataques", function(ids) {
+      let newAttrs = {};
+
+      ids.forEach(i => {
+        newAttrs["repeating_ataques_"+i+"_editingAtaqueEnabled"] = e.newValue;
+      });
+
+      setAttrs(newAttrs);
+    });
+  });
+
+  on("change:repeating_ataques:ataqueBonus", function(e) {
+    console.log(e);
+
+    setAttrs({
+      repeating_ataques_ataqueBonusInt: parseInt(e.newValue) || 0
+    });
+  });
+  
+  const onChangeAtributoMod = Atributos.map(a => "change:"+a+"_mod").join(" ");
+  const attrsPericiasAtributos = Pericias.map(a => a+"_atributo");
+  on(onChangeAtributoMod, function(e) {
+    getAttrs(attrsPericiasAtributos, function(values) {
+      let newAttrs = {};
+
+      newAttrs[e.sourceAttribute+"_sinalizado"] = (parseInt(e.newValue) > 0) ? "+"+e.newValue : e.newValue;
+
+      Pericias.forEach((pericia) => {
+        if (values[pericia+"_atributo"] == e.sourceAttribute) {
+          newAttrs[pericia+"_atributo_mod"] = e.newValue;
+        }
+      });
+      
+      setAttrs(newAttrs);
+    });
+  });
+
+  const onChangePericiaAtributo = Pericias.map(a => "change:"+a+"_atributo").join(" ");
+  on(onChangePericiaAtributo, function(e) {
+    getAttrs(["for_mod", "des_mod", "con_mod", "int_mod", "sab_mod", "car_mod"], function(values) {
+      let newAttrs = {};
+
+      newAttrs[e.sourceAttribute+"_mod"] = values[e.newValue];
+
+      setAttrs(newAttrs);
+    });
+  });
+
+  on("sheet:opened", function() {
+    getAttrs(["first_open"], function(values) {
+      if(values.first_open == "1") {
+        const newAttrs = {
+          nivel: "1",
+
+          for: "10",
+          des: "10",
+          con: "10",
+          int: "10",
+          sab: "10",
+          car: "10",
+          for_mod: "0",
+          des_mod: "0",
+          con_mod: "0",
+          int_mod: "0",
+          sab_mod: "0",
+          car_mod: "0",
+          for_mod_sinalizado: "0",
+          des_mod_sinalizado: "0",
+          con_mod_sinalizado: "0",
+          int_mod_sinalizado: "0",
+          sab_mod_sinalizado: "0",
+          car_mod_sinalizado: "0",
+        }
+
+        Pericias.forEach((pericia, index) => {
+          newAttrs[pericia+"_atributo"] = PericiasDefaultAtributos[index]+"_mod";
+          newAttrs[pericia+"_total"] = "0";
+          newAttrs[pericia+"_metade_nivel"] = "0";
+          newAttrs[pericia+"_atributo_mod"] = "0";
+          newAttrs[pericia+"_bonus_treino"] = "0";
+          newAttrs[pericia+"_outros"] = "0";
+        });
+
+        setAttrs(newAttrs);
+      }
+    });
+  });
+</script>

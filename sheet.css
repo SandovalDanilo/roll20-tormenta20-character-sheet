@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
+
+.sheet-Ficha {
+  width: 100%;
+  min-width: 600px;
+  max-width: 1000px;
+  border: 2px solid #000;
+  font-family: 'Source Sans Pro';
+}
+
+.sheet-Ficha input[type=text],
+.sheet-Ficha input[type=number] {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #000;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.sheet-Ficha button.btn[type=roll] {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.sheet-Ficha button.btn[type=roll]:hover,
+.sheet-Ficha button.btn[type=roll]:hover > input {
+  color: #999;
+}
+
+.sheet-Ficha button.btn[type=roll]::before {
+  content: none;
+}
+
+.sheet-Ficha input[type=number]::-webkit-inner-spin-button,
+.sheet-Ficha input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sheet-Ficha .sheet-title {
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.sheet-d-flex { display: flex }
+.sheet-fd-col { flex-direction: column; }
+.sheet-stretch { align-self: stretch; }
+.sheet-f-1 { flex: 1 }
+.sheet-f-2 { flex: 2 }
+.sheet-f-3 { flex: 3 }
+.sheet-f-4 { flex: 4 }
+.sheet-f-5 { flex: 5 }
+.sheet-f-6 { flex: 6 }
+.sheet-f-7 { flex: 7 }
+.sheet-f-8 { flex: 8 }
+.sheet-f-9 { flex: 9 }
+
+/* === HEADER === */
+
+.sheet-Header .sheet-input-wrapper {
+  padding: 5px;
+}
+
+.sheet-Header input[type=text],
+.sheet-Header input[type=number] {
+  height: 30px;
+  font-size: 18px;
+  border-bottom-width: 2px;
+}
+
+/* === ATRIBUTOS === */
+
+.sheet-Atributos .sheet-box {
+  border: 1px solid #000;
+  margin: 5px;
+  padding-bottom: 10px;
+}
+
+.sheet-Atributos input.sheet-modificador {
+  width: 80%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 28px;
+}
+
+.sheet-Atributos input.sheet-atributo {
+  width: 40px;
+  margin: 0 auto;
+  margin-top: -20px;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+/* === PERICIAS === */
+
+.sheet-Pericias {
+  margin: 5px;
+  border: 1px solid #000;
+}
+
+.sheet-Pericias thead > tr {
+  vertical-align: bottom;
+}
+
+.sheet-Pericias .sheet-pericias-header {
+  padding: 5px;
+  align-items: flex-end;
+}
+
+.sheet-Pericias .sheet-pericias-title {
+  padding: 3px;
+}
+
+.sheet-Pericias .sheet-pericias-subtitle {
+  font-size: 9px;
+  text-align: center;
+  width: 10%;
+  padding-right: 5px;
+}
+
+.sheet-Pericias .sheet-treino-pericia {
+  text-align: center;
+  padding-left: 5px;
+}
+
+.sheet-Pericias .sheet-nome-pericia button[type=roll] {
+  font-size: 14px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  letter-spacing: 0.5px;
+}
+
+.sheet-Pericias .sheet-atributo-pericia {
+  width: 10%;
+}
+
+.sheet-Pericias input[type=checkbox] {
+  height: 25px;
+}
+
+.sheet-Pericias input[type=text],
+.sheet-Pericias input[type=number] {
+  width: 80%;
+  display: inline-block;
+  padding-bottom: 0px;
+  text-align: center;
+  padding: 0;
+}
+
+.sheet-Pericias select {
+  width: 100%;
+  -webkit-appearance: none;
+  border: none;
+  margin-bottom: 0px;
+  height: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sheet-Pericias .sheet-simbolo {
+  float: left;
+  margin-left: -7px;
+}
+
+/* === VIDA / MANA === */
+
+.sheet-Vida,
+.sheet-Mana {
+  border: 1px solid #000;
+  margin: 5px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.sheet-Vida .sheet-pontos input[type=number],
+.sheet-Mana .sheet-pontos input[type=number] {
+  border-bottom-color: #ddd;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 26px;
+  text-align: center;
+}
+
+.sheet-Vida .sheet-pontos > div,
+.sheet-Mana .sheet-pontos > div {
+  font-size: 10px;
+}
+
+/* === ATAQUES === */
+
+.sheet-Ataques {
+  border: 1px solid #000;
+  margin: 5px;
+  padding: 5px;
+}
+
+.sheet-Ataques .sheet-ataques-header {
+  font-size: 11px;
+  text-align: center;
+}
+
+.sheet-Ataques .sheet-ataques-header .sheet-title {
+  text-align: left;
+}
+
+.sheet-Ataques .sheet-each-ataque {
+  margin-bottom: 5px;
+}
+
+.sheet-Ataques .sheet-each-ataque input[type=text] {
+  width: 80%;
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=text] {
+  width: 95%;
+  margin-left: 0;
+  text-align: left;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox] {
+  display: none;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox] + input {
+  display: none;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox] + input + button {
+  display: block;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox]:checked + input {
+  display: block;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox]:checked + input + button {
+  display: none;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome .sheet-ataque-nome-button {
+  font-size: 13px;
+  border-bottom: 1px solid #000;
+  border-radius: 0px;
+  width: 95%;
+  text-align: left;
+  margin-left: 0;
+  padding: 0;
+  padding-top: 4px;
+}
+
+.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome .sheet-ataque-nome-button span {
+  display: block;
+  height: 18px;
+}
+
+/* === DEFESA === */
+
+.sheet-Defesa {
+  border: 1px solid #000;
+  margin: 5px;
+}
+
+.sheet-Defesa table {
+  margin: 5px;
+}
+
+.sheet-Defesa table {
+  margin: 5px;
+}
+
+.sheet-Defesa table thead th {
+  font-size: 9px;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.sheet-Defesa table tbody td input {
+  width: 80%;
+}
+
+.sheet-Armadura {
+  border: 1px solid #000;
+  margin: 5px;
+}
+
+.sheet-Armadura table {
+  margin: 5px;
+}
+
+.sheet-Armadura table thead th {
+  font-size: 9px;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.sheet-Armadura table thead th:first-child {
+  text-align: left;
+  width: 60%;
+}
+
+.sheet-Armadura table tbody td input[type=text] {
+  width: 95%;
+  margin-left: 0;
+}
+
+.sheet-Armadura table tbody td input[type=number] {
+  width: 80%;
+  text-align: center;
+}
+
+/* === HABILIDADES / MAGIAS === */
+
+.sheet-Habilidades {
+  border: 1px solid #000;
+  margin: 5px;
+  padding: 5px;
+}
+
+.sheet-Habilidades .sheet-title {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.sheet-Habilidades .sheet-each-habilidade {
+  margin-bottom: 10px;
+}
+
+.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper {
+  padding-right: 5px;
+}
+
+.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper input[type=text] {
+  padding-bottom: 1px;
+}
+
+.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper textarea {
+  border: 1px solid #000;
+  width: auto;
+  height: auto;
+  margin-bottom: 0px;
+  margin-left: 5px;
+}
+
+/* === EQUIPAMENTO / PROFICIENCIAS === */
+
+.sheet-Equipamento,
+.sheet-Proficiencias {
+  margin: 5px;
+  margin-bottom: 0;
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+.sheet-Equipamento .sheet-title,
+.sheet-Proficiencias .sheet-title {
+  text-align: center;
+}
+
+.sheet-Equipamento .sheet-each-item {
+  margin-bottom: 5px;
+}
+
+.sheet-Equipamento .sheet-each-item input[type=text] {
+  margin-left: 0;
+  width: 95%;
+  padding-bottom: 1px;
+}
+
+.sheet-Equipamento .sheet-each-item input[type=number] {
+  text-align: center;
+  margin-right: 0;
+  width: 95%;
+  padding-bottom: 1px;
+}
+
+.sheet-Proficiencias textarea {
+  border: 1px solid #000;
+  border-radius: 0px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
