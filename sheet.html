@@ -178,7 +178,7 @@
             <div class="f-2 ataque-nome">
               <input type="checkbox" name="attr_editingAtaqueEnabled" checked value="1" />
               <input type="text" name="attr_ataqueNome" value="Ataque" />
-              <button type="roll" class="ataque-nome-button" value="&{template:default} {{name=Ataque}} {{Resultado=[[1d20+@{ataqueBonusInt}]]}} {{Dano=[[@{ataqueDano}]]}} {{Crítico=[[@{ataqueCritico}]]}} {{Tipo=@{ataqueTipo}}} {{Alcance=@{ataqueAlcance}}}">
+              <button type="roll" class="ataque-nome-button" value="&{template:default} {{name=Ataque de @{ataqueNome}}} {{Resultado=[[1d20+@{ataqueBonusInt}]]}} {{Dano=[[@{ataqueDano}]]}} {{Crítico=@{ataqueCritico}}} {{Tipo=@{ataqueTipo}}} {{Alcance=@{ataqueAlcance}}}">
                 <span name="attr_ataqueNome"></span>
               </button>
             </div>
@@ -297,7 +297,7 @@
           <div class="Proficiencias">
             <div class="title">Proficiências e Outras Características</div>
             <div class="d-flex">
-              <textarea class="f-1" name="proficiencias"></textarea>
+              <textarea class="f-1" name="attr_proficiencias"></textarea>
             </div>
           </div>
         </div>
@@ -440,18 +440,18 @@
             </tr>
 
             <tr>
-              <td class="treino-pericia"><input type="checkbox" value="1" name="attr_intuicao_treino" /></td>
-              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Intuição}} {{Resultado=[[1d20+@{intuicao_total}]]}}">Intuição</button></td>
-              <td class="atributo-pericia"><select name="attr_intuicao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
-              <td><input type="number" name="attr_intuicao_total" /></td>
+              <td class="treino-pericia"><input type="checkbox" value="1" name="attr_enganacao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Enganação}} {{Resultado=[[1d20+@{enganacao_total}]]}}">Enganação</button></td>
+              <td class="atributo-pericia"><select name="attr_enganacao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_enganacao_total" /></td>
               <td><span class="simbolo">=</span></td>
-              <td><input type="number" name="attr_intuicao_metade_nivel" /></td>
+              <td><input type="number" name="attr_enganacao_metade_nivel" /></td>
               <td><span class="simbolo">+</span></td>
-              <td><input type="number" name="attr_intuicao_atributo_mod" /></td>
+              <td><input type="number" name="attr_enganacao_atributo_mod" /></td>
               <td><span class="simbolo">+</span></td>
-              <td><input type="number" name="attr_intuicao_bonus_treino" /></td>
+              <td><input type="number" name="attr_enganacao_bonus_treino" /></td>
               <td><span class="simbolo">+</span></td>
-              <td><input type="number" name="attr_intuicao_outros" /></td>
+              <td><input type="number" name="attr_enganacao_outros" /></td>
             </tr>
 
             <tr>
@@ -512,6 +512,21 @@
               <td><input type="number" name="attr_iniciativa_bonus_treino" /></td>
               <td><span class="simbolo">+</span></td>
               <td><input type="number" name="attr_iniciativa_outros" /></td>
+            </tr>
+
+            <tr>
+              <td class="treino-pericia"><input type="checkbox" value="1" name="attr_intimidacao_treino" /></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Intimidação}} {{Resultado=[[1d20+@{intimidacao_total}]]}}">Intimidação</button></td>
+              <td class="atributo-pericia"><select name="attr_intimidacao_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
+              <td><input type="number" name="attr_intimidacao_total" /></td>
+              <td><span class="simbolo">=</span></td>
+              <td><input type="number" name="attr_intimidacao_metade_nivel" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intimidacao_atributo_mod" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intimidacao_bonus_treino" /></td>
+              <td><span class="simbolo">+</span></td>
+              <td><input type="number" name="attr_intimidacao_outros" /></td>
             </tr>
 
             <tr>
