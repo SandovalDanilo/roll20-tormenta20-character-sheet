@@ -850,7 +850,7 @@
     const origem_defesa = e.sourceAttribute.split("_defesa")[0];
 
     setAttrs({
-      ["defesa_"+origem_defesa]: e.newValue
+      ["defesa_"+origem_defesa]: e.newValue || "0"
     });
   })
 
@@ -989,6 +989,9 @@
           defesa_armadura: "0",
           defesa_escudo: "0",
           defesa_outros: "0",
+
+          tibar: "0",
+          tibar_ouro: "0",
 
           first_open: "0"
         }
