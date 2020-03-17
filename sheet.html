@@ -163,40 +163,40 @@
 
       <div class="Ataques">
         <div class="ataques-header d-flex">
-          <div class="f-2 title">
+          <div class="f-6 title">
             Ataques
-            <input type="checkbox" class="editing_pencil" name="attr_editing_ataque" value="1" />
           </div>
-          <div class="f-1">Bônus de Ataque</div>
-          <div class="f-1">Dano</div>
-          <div class="f-1">Crítico</div>
-          <div class="f-1">Tipo</div>
-          <div class="f-1">Alcance</div>
+          <div class="f-2">Bônus de Ataque</div>
+          <div class="f-2">Dano</div>
+          <div class="f-2">Crítico</div>
+          <div class="f-3">Tipo</div>
+          <div class="f-2">Alcance</div>
         </div>
         <fieldset class="repeating_ataques">
           <div class="d-flex each-ataque">
-            <div class="f-2 ataque-nome">
-              <input type="checkbox" name="attr_editingAtaqueEnabled" checked value="1" />
-              <input type="text" name="attr_ataqueNome" value="Ataque" />
+            <div class="f-1">
               <button type="roll" class="ataque-nome-button" value="&{template:default} {{name=Ataque de @{ataqueNome}}} {{Resultado=[[1d20+@{ataqueBonusInt}]]}} {{Dano=[[@{ataqueDano}]]}} {{Crítico=@{ataqueCritico}}} {{Tipo=@{ataqueTipo}}} {{Alcance=@{ataqueAlcance}}}">
-                <span name="attr_ataqueNome"></span>
+                <span class="dicefontd20">0</span>
               </button>
             </div>
-            <div class="f-1">
-              <input type="text" name="attr_ataqueBonus" />
+            <div class="f-5 ataque-nome">
+              <input type="text" name="attr_ataqueNome" placeholder="Espada curta" />
+            </div>
+            <div class="f-2">
+              <input type="text" name="attr_ataqueBonus" placeholder="+3" />
               <input type="hidden" name="attr_ataqueBonusInt" />
             </div>
-            <div class="f-1">
-              <input type="text" name="attr_ataqueDano" />
+            <div class="f-2">
+              <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
             </div>
-            <div class="f-1">
-              <input type="text" name="attr_ataqueCritico" />
+            <div class="f-2">
+              <input type="text" name="attr_ataqueCritico" placeholder="19" />
             </div>
-            <div class="f-1">
-              <input type="text" name="attr_ataqueTipo" />
+            <div class="f-3">
+              <input type="text" name="attr_ataqueTipo" placeholder="Perfuração" />
             </div>
-            <div class="f-1">
-              <input type="text" name="attr_ataqueAlcance" />
+            <div class="f-2">
+              <input type="text" name="attr_ataqueAlcance" placeholder="--" />
             </div>
           </div>
         </fieldset>
