@@ -270,8 +270,15 @@
               <div class="input-wrapper">
                 <input type="text" name="attr_habilidadeNome" placeholder="Fúria" />
               </div>
-              <div class="input-wrapper">
-                <input type="text" name="attr_habilidadeOrigem" placeholder="Bárbaro 1" />
+              <div class="input-wrapper d-flex">
+                <div class="f-9">
+                  <input type="text" name="attr_habilidadeOrigem" placeholder="Bárbaro 1" />
+                </div>
+                <div class="f-1">
+                  <button type="roll" value="&{template:default} {{name=@{habilidadeNome}}} {{Origem=@{habilidadeOrigem}}} {{Descrição=@{habilidadeDescricao}}}">
+                    <span class="pictos">q</span>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="f-1 d-flex input-wrapper">
@@ -291,6 +298,20 @@
                 <div class="f-1"><input type="number" placeholder="Qtd" name="attr_itemQtd" /></div>
               </div>
             </fieldset>
+            <div class="d-flex dinheiro">
+              <div class="f-2 label">
+                T$:
+              </div>
+              <div class="f-3">
+                <input type="number" name="attr_tibar" />
+              </div>
+              <div class="f-2 label">
+                TO:
+              </div>
+              <div class="f-3">
+                <input type="number" name="attr_tibar_ouro" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="f-1">

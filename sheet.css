@@ -356,6 +356,10 @@
   padding-bottom: 1px;
 }
 
+.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper span.sheet-pictos {
+  font-family: "Pictos";
+}
+
 .sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper textarea {
   border: 1px solid #000;
   width: auto;
@@ -394,6 +398,19 @@
   margin-right: 0;
   width: 95%;
   padding-bottom: 1px;
+}
+
+.sheet-Equipamento .sheet-dinheiro .sheet-label {
+  text-align: center;
+  padding-top: 2px;
+  padding-left: 5px;
+  font-size: 16px;
+}
+
+.sheet-Equipamento .sheet-dinheiro input[type=number] {
+  text-align: center;
+  padding-bottom: 1px;
+  font-size: 16px;
 }
 
 .sheet-Proficiencias textarea {
