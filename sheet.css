@@ -431,3 +431,58 @@
   margin-bottom: 5px;
   margin-top: 5px;
 }
+
+.sheet-rolltemplate-ataque .sheet-template-ataque {
+  font-family: 'Source Sans Pro';
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 3px;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-nome {
+  font-size: 18px;
+  line-height: 150%;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #000;
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-nome .sheet-alcance {
+  font-style: italic;
+  font-size: 12px;
+  line-height: 100%;
+  padding: 3px 0;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-nome .sheet-alcance .sheet-minuscula {
+  text-transform: lowercase;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-label {
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resultado {
+  font-size: 20px;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-rolagem {
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resultado .sheet-legenda {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-d-flex {
+  display: flex;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-f-1 {
+  flex: 1;
+  text-align: center;
+}

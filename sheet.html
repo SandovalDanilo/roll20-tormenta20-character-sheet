@@ -175,7 +175,7 @@
         <fieldset class="repeating_ataques">
           <div class="d-flex each-ataque">
             <div class="f-1">
-              <button type="roll" class="ataque-nome-button" value="&{template:default} {{name=Ataque de @{ataqueNome}}} {{Resultado=[[1d20+@{ataqueBonusInt}]]}} {{Dano=[[@{ataqueDano}]]}} {{Crítico=@{ataqueCritico}}} {{Tipo=@{ataqueTipo}}} {{Alcance=@{ataqueAlcance}}}">
+              <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}}">
                 <span class="dicefontd20">0</span>
               </button>
             </div>
@@ -188,15 +188,19 @@
             </div>
             <div class="f-2">
               <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
+              <input type="hidden" name="attr_ataqueDanoDados" />
+              <input type="hidden" name="attr_ataqueDanoMod" />
             </div>
             <div class="f-2">
               <input type="text" name="attr_ataqueCritico" placeholder="19" />
+              <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
+              <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
             </div>
             <div class="f-3">
               <input type="text" name="attr_ataqueTipo" placeholder="Perfuração" />
             </div>
             <div class="f-2">
-              <input type="text" name="attr_ataqueAlcance" placeholder="--" />
+              <input type="text" name="attr_ataqueAlcance" placeholder="" />
             </div>
           </div>
         </fieldset>
@@ -811,10 +815,46 @@
   </div>
 </div>
 
+<rolltemplate class="sheet-rolltemplate-ataque">
+  <div class="template-ataque">
+    <div class="nome">
+      {{nome}}
+      {{#alcance}}
+        <div class="alcance">Alcance <span class="minuscula">{{alcance}}</span></div>
+      {{/alcance}}
+    </div>
+    <div class="d-flex label">
+      <div class="f-1">Acerto</div>
+      <div class="f-1">Dano</div>
+    </div>
+    <div class="d-flex resultado">
+      <div class="f-1">
+        <div class="rolagem">{{acerto}}</div>
+        <div class="legenda">
+          {{#critico}}
+          Crítico {{critico}}
+          {{/critico}}
+        </div>
+      </div>
+      <div class="f-1">
+        <div class="rolagem">
+          {{#^rollWasCrit() acerto}} {{dano}} {{/^rollWasCrit() acerto}}
+          {{#rollWasCrit() acerto}} {{danoCritico}} {{/rollWasCrit() acerto}}
+        </div>
+        <div class="legenda">{{tipo}}</div>
+      </div>
+    </div>
+  </div>
+</rolltemplate>
+
 <script type="text/worker">
   const Atributos = ["for", "des", "con", "int", "sab", "car"];
   const Pericias = ["acrobacia", "adestramento", "atletismo", "atuacao", "cavalgar", "conhecimento", "cura", "diplomacia", "enganacao", "fortitude", "furtividade", "guerra", "iniciativa", "intimidacao", "intuicao", "investigacao", "jogatina", "ladinagem", "luta", "misticismo", "navegacao", "nobreza", "oficio_alquimia", "oficio_armeiro", "oficio_culinaria", "percepcao", "pontaria", "reflexos", "religiao", "sobrevivencia", "vontade"];
   const PericiasDefaultAtributos = ["des", "car", "for", "car", "des", "int", "sab", "car", "car", "con", "des", "int", "des", "car", "sab", "int", "car", "des", "for", "int", "sab", "int", "int", "int", "int", "sab", "des", "des", "sab", "sab", "sab"];
+
+  const regexCriticoMargemAmeaca = /^\d+/;
+  const regexCriticoMultiplicador = /x\d/;
+  const regexDadoDano = /\d+d\d+/;
 
   const onChangeAtributo = Atributos.map(a => "change:"+a).join(" ");
   on(onChangeAtributo, function(e) {
@@ -827,16 +867,35 @@
     setAttrs(newAttrs);
   });
 
-  on("change:editing_ataque", function(e) {
-    getSectionIDs("ataques", function(ids) {
-      let newAttrs = {};
+  on("change:repeating_ataques:ataqueDano", function(e) {
+    let danoDados = e.newValue.match(regexDadoDano)[0];
+    let danoMod = e.newValue.replace(danoDados, "");
 
-      ids.forEach(i => {
-        newAttrs["repeating_ataques_"+i+"_editingAtaqueEnabled"] = e.newValue;
-      });
-
-      setAttrs(newAttrs);
+    setAttrs({
+      repeating_ataques_ataqueDanoDados: danoDados,
+      repeating_ataques_ataqueDanoMod: parseInt(danoMod)
     });
+  });
+
+  on("change:repeating_ataques:ataqueCritico", function(e) {
+    let newAttrs = {
+      repeating_ataques_ataqueCriticoMargemAmeaca: 20,
+      repeating_ataques_ataqueCriticoMultiplicador: 2
+    }
+
+    const criticos = (e.newValue || "").split("/");
+
+    criticos.forEach(critico => {
+      if (critico.match(regexCriticoMargemAmeaca)) {
+        newAttrs["repeating_ataques_ataqueCriticoMargemAmeaca"] = parseInt(critico);
+      }
+
+      if (critico.match(regexCriticoMultiplicador)) {
+        newAttrs["repeating_ataques_ataqueCriticoMultiplicador"] = parseInt(critico.replace("x", ""));
+      }
+    })
+
+    setAttrs(newAttrs);
   });
 
   on("change:repeating_ataques:ataqueBonus", function(e) {
