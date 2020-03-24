@@ -526,7 +526,7 @@
 
             <tr>
               <td class="treino-pericia"><input type="checkbox" value="1" name="attr_iniciativa_treino" /></td>
-              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Iniciativa}} {{Resultado=[[1d20+@{iniciativa_total}]]}}">Iniciativa</button></td>
+              <td class="nome-pericia"><button type="roll" value="&{template:default} {{name=Teste de Iniciativa}} {{Resultado=[[1d20+@{iniciativa_total} &{tracker}]]}}">Iniciativa</button></td>
               <td class="atributo-pericia"><select name="attr_iniciativa_atributo"><option value="for_mod">(FOR)</option><option value="des_mod">(DES)</option><option value="con_mod">(CON)</option><option value="int_mod">(INT)</option><option value="sab_mod">(SAB)</option><option value="car_mod">(CAR)</option></select></td>
               <td><input type="number" name="attr_iniciativa_total" /></td>
               <td><span class="simbolo">=</span></td>
