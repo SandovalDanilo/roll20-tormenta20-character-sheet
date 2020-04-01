@@ -233,6 +233,11 @@
   text-align: left;
 }
 
+.sheet-Ataques .sheet-title {
+  text-align: center;
+  /* border-top: 1px solid #000; */
+}
+
 /* .sheet-Ataques .sheet-ataques-header {
   font-size: 11px;
   text-align: center;
