@@ -79,6 +79,19 @@
   border-bottom-width: 2px;
 }
 
+.sheet-Header .sheet-logo img {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.sheet-Header .sheet-logo label {
+  cursor: pointer;
+}
+
+.sheet-Header .sheet-logo label:hover {
+  color: #999;
+}
+
 /* === ATRIBUTOS === */
 
 .sheet-Atributos .sheet-box {
