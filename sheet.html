@@ -59,210 +59,217 @@
 
     <div class="logo f-1">
       Tormenta20
+      <div>
+        <label>
+          <input type="checkbox" name="attr_editavel" value="1" />
+          Editando
+        </label>
+      </div>
     </div>
   </div>
 
   <div class="d-flex">
     <div class="f-6">
-      <div class="Atributos d-flex">
-        <div class="d-flex f-1 fd-col">
-          <div class="box f-1 d-flex">
-            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Força}} {{Resultado=[[1d20+@{for_mod}]]}}">
-              <div class="nome-atributo">FOR</div>
-              <input type="hidden" name="attr_for_mod" value="0" />
-              <input type="text" class="modificador" readonly="true" name="attr_for_mod_sinalizado" value="0" />
-            </button>
+      <div class="d-flex">
+        <div class="f-2">
+          <div class="Atributos">
+            <div class="d-flex">
+              <div class="d-flex f-1 fd-col">
+                <div class="box f-1 d-flex">
+                  <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Força}} {{Resultado=[[1d20+@{for_mod}]]}}">
+                    <div class="nome-atributo">FOR</div>
+                    <input type="hidden" name="attr_for_mod" value="0" />
+                    <input type="text" class="modificador" readonly="true" name="attr_for_mod_sinalizado" value="0" />
+                  </button>
+                </div>
+                <input type="number" class="f-1 atributo" name="attr_for" value="10" />
+              </div>
+      
+              <div class="d-flex f-1 fd-col">
+                <div class="box f-1 d-flex">
+                  <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Destreza}} {{Resultado=[[1d20+@{des_mod}]]}}">
+                    <div class="nome-atributo">DES</div>
+                    <input type="hidden" name="attr_des_mod" value="0" />
+                    <input type="text" class="modificador" readonly="true" name="attr_des_mod_sinalizado" value="0" />
+                  </button>
+                </div>
+                <input type="number" class="f-1 atributo" name="attr_des" value="10" />
+              </div>
+      
+              <div class="d-flex f-1 fd-col">
+                <div class="box f-1 d-flex">
+                  <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Constituição}} {{Resultado=[[1d20+@{con_mod}]]}}">
+                    <div class="nome-atributo">CON</div>
+                    <input type="hidden" name="attr_con_mod" value="0" />
+                    <input type="text" class="modificador" readonly="true" name="attr_con_mod_sinalizado" value="0" />
+                  </button>
+                </div>
+                <input type="number" class="f-1 atributo" name="attr_con" value="10" />
+              </div>
+            </div>
+            <div class="d-flex">
+              <div class="d-flex f-1 fd-col">
+                <div class="box f-1 d-flex">
+                  <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Inteligência}} {{Resultado=[[1d20+@{int_mod}]]}}">
+                    <div class="nome-atributo">INT</div>
+                    <input type="hidden" name="attr_int_mod" value="0" />
+                    <input type="text" class="modificador" readonly="true" name="attr_int_mod_sinalizado" value="0" />
+                  </button>
+                </div>
+                <input type="number" class="f-1 atributo" name="attr_int" value="10" />
+              </div>
+      
+              <div class="d-flex f-1 fd-col">
+                <div class="box f-1 d-flex">
+                  <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Sabedoria}} {{Resultado=[[1d20+@{sab_mod}]]}}">
+                    <div class="nome-atributo">SAB</div>
+                    <input type="hidden" name="attr_sab_mod" value="0" />
+                    <input type="text" class="modificador" readonly="true" name="attr_sab_mod_sinalizado" value="0" />
+                  </button>
+                </div>
+                <input type="number" class="f-1 atributo" name="attr_sab" value="10" />
+              </div>
+      
+              <div class="d-flex f-1 fd-col">
+                <div class="box f-1 d-flex">
+                  <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Carisma}} {{Resultado=[[1d20+@{car_mod}]]}}">
+                    <div class="nome-atributo">CAR</div>
+                    <input type="hidden" name="attr_car_mod" value="0" />
+                    <input type="text" class="modificador" readonly="true" name="attr_car_mod_sinalizado" value="0" />
+                  </button>
+                </div>
+                <input type="number" class="f-1 atributo" name="attr_car" value="10" />
+              </div>
+            </div>
           </div>
-          <input type="number" class="f-1 atributo" name="attr_for" value="10" />
+
+          <div class="Vida">
+            <div class="title">Pontos de Vida</div>
+            <div class="d-flex">
+              <div class="f-1 pontos">
+                <input type="number" name="attr_vida_max" />
+                <div>Máximos</div>
+              </div>
+              <div class="f-2 pontos">
+                <input type="number" name="attr_vida" />
+                <div>Atuais</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Mana">
+            <div class="title">Pontos de Mana</div>
+            <div class="d-flex">
+              <div class="f-1 pontos">
+                <input type="number" name="attr_mana_max" />
+                <div>Máximos</div>
+              </div>
+              <div class="f-2 pontos">
+                <input type="number" name="attr_mana" />
+                <div>Atuais</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Defesa">
+            <div class="d-flex">
+              <div class="f-1">
+                <div class="title">Defesa</div>
+              </div>
+              <div class="f-1 text-right">
+                Total:
+              </div>
+              <div class="f-1">
+                <input type="number" class="defesa-total" name="attr_defesa_total" />
+              </div>
+            </div>
+
+            <div class="d-flex">
+              <div class="f-1">
+                <input type="number" name="attr_defesa_destreza" />
+                <div class="label-defesa">Mod. Des</div>
+              </div>
+
+              <div class="f-1">
+                <input type="number" name="attr_defesa_armadura" />
+                <div class="label-defesa">Armadura</div>
+              </div>
+
+              <div class="f-1">
+                <input type="number" name="attr_defesa_escudo" />
+                <div class="label-defesa">Escudo</div>
+              </div>
+
+              <div class="f-1">
+                <input type="number" name="attr_defesa_outros" />
+                <div class="label-defesa">Outros</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="Armadura">
+            <table>
+              <thead>
+                <tr>
+                  <th class="title">Armadura & Escudo</th>
+                  <th>Defesa</th>
+                  <th>Penalidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" placeholder="Couro batido" name="attr_armadura_nome" /></td>
+                  <td><input type="number" placeholder="3" name="attr_armadura_defesa" /></td>
+                  <td><input type="number" placeholder="-1" name="attr_armadura_penalidade" /></td>
+                </tr>
+                <tr>
+                  <td><input type="text" placeholder="Escudo leve" name="attr_escudo_nome" /></td>
+                  <td><input type="number" placeholder="1" name="attr_escudo_defesa" /></td>
+                  <td><input type="number" placeholder="-1" name="attr_escudo_penalidade" /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="d-flex f-1 fd-col">
-          <div class="box f-1 d-flex">
-            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Destreza}} {{Resultado=[[1d20+@{des_mod}]]}}">
-              <div class="nome-atributo">DES</div>
-              <input type="hidden" name="attr_des_mod" value="0" />
-              <input type="text" class="modificador" readonly="true" name="attr_des_mod_sinalizado" value="0" />
-            </button>
-          </div>
-          <input type="number" class="f-1 atributo" name="attr_des" value="10" />
-        </div>
+        <div class="f-3">
+          <div class="Ataques">
+            <div class="">
+              <input type="checkbox" class="ataque-editavel" name="attr_ataqueEditavel" value="1" />
+              
+              <fieldset class="repeating_ataques">
+                <div class="editavel">
+                  <input type="text" name="attr_ataqueNome" placeholder="Espada curta" />
 
-        <div class="d-flex f-1 fd-col">
-          <div class="box f-1 d-flex">
-            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Constituição}} {{Resultado=[[1d20+@{con_mod}]]}}">
-              <div class="nome-atributo">CON</div>
-              <input type="hidden" name="attr_con_mod" value="0" />
-              <input type="text" class="modificador" readonly="true" name="attr_con_mod_sinalizado" value="0" />
-            </button>
-          </div>
-          <input type="number" class="f-1 atributo" name="attr_con" value="10" />
-        </div>
+                  <input type="text" name="attr_ataqueBonus" placeholder="+3" />
+                  <input type="hidden" name="attr_ataqueBonusInt" />
 
-        <div class="d-flex f-1 fd-col">
-          <div class="box f-1 d-flex">
-            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Inteligência}} {{Resultado=[[1d20+@{int_mod}]]}}">
-              <div class="nome-atributo">INT</div>
-              <input type="hidden" name="attr_int_mod" value="0" />
-              <input type="text" class="modificador" readonly="true" name="attr_int_mod_sinalizado" value="0" />
-            </button>
-          </div>
-          <input type="number" class="f-1 atributo" name="attr_int" value="10" />
-        </div>
+                  <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
+                  <input type="hidden" name="attr_ataqueDanoDados" />
+                  <input type="hidden" name="attr_ataqueDanoMod" />
 
-        <div class="d-flex f-1 fd-col">
-          <div class="box f-1 d-flex">
-            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Sabedoria}} {{Resultado=[[1d20+@{sab_mod}]]}}">
-              <div class="nome-atributo">SAB</div>
-              <input type="hidden" name="attr_sab_mod" value="0" />
-              <input type="text" class="modificador" readonly="true" name="attr_sab_mod_sinalizado" value="0" />
-            </button>
-          </div>
-          <input type="number" class="f-1 atributo" name="attr_sab" value="10" />
-        </div>
+                  <input type="text" name="attr_ataqueCritico" placeholder="19" />
+                  <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
+                  <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
 
-        <div class="d-flex f-1 fd-col">
-          <div class="box f-1 d-flex">
-            <button class="box f-1" type="roll" value="&{template:default} {{name=Teste de Carisma}} {{Resultado=[[1d20+@{car_mod}]]}}">
-              <div class="nome-atributo">CAR</div>
-              <input type="hidden" name="attr_car_mod" value="0" />
-              <input type="text" class="modificador" readonly="true" name="attr_car_mod_sinalizado" value="0" />
-            </button>
-          </div>
-          <input type="number" class="f-1 atributo" name="attr_car" value="10" />
-        </div>
-      </div>
+                  <input type="text" name="attr_ataqueTipo" placeholder="Perfuração" />
 
-      <div class="VidaMana d-flex">
-        <div class="f-1 Vida">
-          <div class="title">Pontos de Vida</div>
-          <div class="d-flex">
-            <div class="f-1 pontos">
-              <input type="number" name="attr_vida_max" />
-              <div>Máximos</div>
-            </div>
-            <div class="f-2 pontos">
-              <input type="number" name="attr_vida" />
-              <div>Atuais</div>
-            </div>
-          </div>
-        </div>
-        <div class="f-1 Mana">
-          <div class="title">Pontos de Mana</div>
-          <div class="d-flex">
-            <div class="f-1 pontos">
-              <input type="number" name="attr_mana_max" />
-              <div>Máximos</div>
-            </div>
-            <div class="f-2 pontos">
-              <input type="number" name="attr_mana" />
-              <div>Atuais</div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  <input type="text" name="attr_ataqueAlcance" placeholder="" />
+                </div>
 
-      <div class="Ataques">
-        <div class="ataques-header d-flex">
-          <div class="f-6 title">
-            Ataques
-          </div>
-          <div class="f-2">Bônus de Ataque</div>
-          <div class="f-2">Dano</div>
-          <div class="f-2">Crítico</div>
-          <div class="f-3">Tipo</div>
-          <div class="f-2">Alcance</div>
-        </div>
-        <fieldset class="repeating_ataques">
-          <div class="d-flex each-ataque">
-            <div class="f-1">
-              <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}}">
-                <span class="dicefontd20">0</span>
-              </button>
-            </div>
-            <div class="f-5 ataque-nome">
-              <input type="text" name="attr_ataqueNome" placeholder="Espada curta" />
-            </div>
-            <div class="f-2">
-              <input type="text" name="attr_ataqueBonus" placeholder="+3" />
-              <input type="hidden" name="attr_ataqueBonusInt" />
-            </div>
-            <div class="f-2">
-              <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
-              <input type="hidden" name="attr_ataqueDanoDados" />
-              <input type="hidden" name="attr_ataqueDanoMod" />
-            </div>
-            <div class="f-2">
-              <input type="text" name="attr_ataqueCritico" placeholder="19" />
-              <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
-              <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
-            </div>
-            <div class="f-3">
-              <input type="text" name="attr_ataqueTipo" placeholder="Perfuração" />
-            </div>
-            <div class="f-2">
-              <input type="text" name="attr_ataqueAlcance" placeholder="" />
+                <div class="nao-editavel">
+                  <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}}">
+                    <div><span name="attr_ataqueNome"></span></div>
+                    <span name="attr_ataqueBonus"></span>
+                    para acerto, 
+                    <span name="attr_ataqueDano"></span>
+                    de dano de
+                    <span name="attr_ataqueTipo"></span>
+                  </button>
+                </div>
+              </fieldset>
             </div>
           </div>
-        </fieldset>
-      </div>
-
-      <div class="d-flex stretch">
-        <div class="f-1 Defesa">
-          <table>
-            <thead>
-              <tr>
-                <th class="title">Defesa</th>
-                <th class="simbolo"></th>
-                <th></th>
-                <th class="simbolo"></th>
-                <th>Mod. de Destreza</th>
-                <th class="simbolo"></th>
-                <th>Bônus Armadura</th>
-                <th class="simbolo"></th>
-                <th>Bônus Escudo</th>
-                <th class="simbolo"></th>
-                <th>Outros</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="number" name="attr_defesa_total" /></td>
-                <td>=</td>
-                <td><span>10</span></td>
-                <td>+</td>
-                <td><input type="number" name="attr_defesa_destreza" /></td>
-                <td>+</td>
-                <td><input type="number" name="attr_defesa_armadura" /></td>
-                <td>+</td>
-                <td><input type="number" name="attr_defesa_escudo" /></td>
-                <td>+</td>
-                <td><input type="number" name="attr_defesa_outros" /></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="f-1 Armadura">
-          <table>
-            <thead>
-              <tr>
-                <th class="title">Armadura & Escudo</th>
-                <th>Defesa</th>
-                <th>Penalidade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="text" placeholder="Couro batido" name="attr_armadura_nome" /></td>
-                <td><input type="number" placeholder="3" name="attr_armadura_defesa" /></td>
-                <td><input type="number" placeholder="-1" name="attr_armadura_penalidade" /></td>
-              </tr>
-              <tr>
-                <td><input type="text" placeholder="Escudo leve" name="attr_escudo_nome" /></td>
-                <td><input type="number" placeholder="1" name="attr_escudo_defesa" /></td>
-                <td><input type="number" placeholder="-1" name="attr_escudo_penalidade" /></td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
 
@@ -315,14 +322,6 @@
               <div class="f-3">
                 <input type="number" name="attr_tibar_ouro" />
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="f-1">
-          <div class="Proficiencias">
-            <div class="title">Proficiências e Outras Características</div>
-            <div class="d-flex">
-              <textarea class="f-1" name="attr_proficiencias"></textarea>
             </div>
           </div>
         </div>
@@ -811,6 +810,13 @@
           </tbody>
         </table>
       </div>
+
+      <div class="Proficiencias">
+        <div class="title">Proficiências e Outras Características</div>
+        <div class="d-flex">
+          <textarea class="f-1" name="attr_proficiencias"></textarea>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -855,6 +861,22 @@
   const regexCriticoMargemAmeaca = /^\d+/;
   const regexCriticoMultiplicador = /x\d/;
   const regexDadoDano = /\d+d\d+/;
+
+  on("change:editavel", e => {
+    setAttrs({
+      ataqueEditavel: e.newValue
+    });
+    // getSectionIDs("ataques", ids => {
+    //   let newAttrs = {}
+    //
+    //   ids.forEach(id => {
+    //     newAttrs["repeating_ataques_"+id+"_ataqueEditavel"] = e.newValue
+    //   })
+    //
+    //   // console.log(newAttrs);
+    //   setAttrs(newAttrs);
+    // })
+  })
 
   const onChangeAtributo = Atributos.map(a => "change:"+a).join(" ");
   on(onChangeAtributo, function(e) {

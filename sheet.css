@@ -212,7 +212,28 @@
   padding: 5px;
 }
 
-.sheet-Ataques .sheet-ataques-header {
+.sheet-Ataques input.sheet-ataque-editavel ~ .repcontainer .sheet-nao-editavel,
+.sheet-Ataques input.sheet-ataque-editavel:checked ~ .repcontrol,
+.sheet-Ataques input.sheet-ataque-editavel:checked ~ .repcontainer .sheet-editavel {
+  display: block;
+}
+
+.sheet-Ataques input.sheet-ataque-editavel,
+.sheet-Ataques input.sheet-ataque-editavel:checked ~ .repcontainer .sheet-nao-editavel,
+.sheet-Ataques input.sheet-ataque-editavel ~ .repcontrol,
+.sheet-Ataques input.sheet-ataque-editavel ~ .repcontainer .sheet-editavel {
+  display: none;
+}
+
+.sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button {
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  text-align: left;
+}
+
+/* .sheet-Ataques .sheet-ataques-header {
   font-size: 11px;
   text-align: center;
 }
@@ -275,7 +296,7 @@
 .sheet-Ataques .sheet-each-ataque .sheet-ataque-nome .sheet-ataque-nome-button span {
   display: block;
   height: 18px;
-}
+} */
 
 /* === DEFESA === */
 
@@ -284,30 +305,30 @@
   margin: 5px;
 }
 
-.sheet-Defesa table {
-  margin: 5px;
+.sheet-Defesa .sheet-title {
+  padding: 5px;
 }
 
-.sheet-Defesa table {
-  margin: 5px;
+.sheet-Defesa .sheet-text-right {
+  text-align: right;
+  padding-top: 7px;
 }
 
-.sheet-Defesa table thead th {
+.sheet-Defesa input[type=number] {
+  padding-bottom: 1px;
+  width: 70%;
+  text-align: center;
+}
+
+.sheet-Defesa input[type=number].sheet-defesa-total {
+  width: 50%;
+  margin: 0 15%;
+  font-size: 16px;
+}
+
+.sheet-Defesa .sheet-label-defesa {
   font-size: 9px;
-  font-weight: normal;
   text-align: center;
-  vertical-align: bottom;
-}
-
-.sheet-Defesa table tbody td input[type=number] {
-  width: 80%;
-  text-align: center;
-  font-size: 16px;
-}
-
-.sheet-Defesa table tbody td span {
-  font-size: 16px;
-  margin: 0 3px;
 }
 
 .sheet-Armadura {
