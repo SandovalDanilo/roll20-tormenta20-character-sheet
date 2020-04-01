@@ -239,32 +239,52 @@
               
               <fieldset class="repeating_ataques">
                 <div class="editavel">
-                  <input type="text" name="attr_ataqueNome" placeholder="Espada curta" />
+                  <input type="checkbox" class="ataque-editando" name="attr_ataqueEditando" />
 
-                  <input type="text" name="attr_ataqueBonus" placeholder="+3" />
-                  <input type="hidden" name="attr_ataqueBonusInt" />
+                  <input type="text" class="ataque-nome" name="attr_ataqueNome" placeholder="Espada curta" />
 
-                  <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
-                  <input type="hidden" name="attr_ataqueDanoDados" />
-                  <input type="hidden" name="attr_ataqueDanoMod" />
+                  <div class="editando d-flex">
+                    <input type="hidden" name="attr_ataqueBonusInt" />
+                    <input type="hidden" name="attr_ataqueDanoDados" />
+                    <input type="hidden" name="attr_ataqueDanoMod" />
+                    <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
+                    <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
 
-                  <input type="text" name="attr_ataqueCritico" placeholder="19" />
-                  <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
-                  <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
-
-                  <input type="text" name="attr_ataqueTipo" placeholder="Perfuração" />
-
-                  <input type="text" name="attr_ataqueAlcance" placeholder="" />
+                    <div class="f-2">
+                      <input type="text" name="attr_ataqueBonus" placeholder="+4" />
+                      <div class="label">Acerto</div>
+                    </div>
+                    <div class="f-2">
+                      <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
+                      <div class="label">Dano</div>
+                    </div>
+                    <div class="f-2">
+                      <input type="text" name="attr_ataqueCritico" placeholder="19/x2" />
+                      <div class="label">Crítico</div>
+                    </div>
+                    <div class="f-3">
+                      <input type="text" name="attr_ataqueTipo" placeholder="Corte" />
+                      <div class="label">Tipo</div>
+                    </div>
+                    <div class="f-3">
+                      <input type="text" name="attr_ataqueAlcance" placeholder="Médio" />
+                      <div class="label">Alcance</div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="nao-editavel">
                   <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}}">
-                    <div><span name="attr_ataqueNome"></span></div>
-                    <span name="attr_ataqueBonus"></span>
-                    para acerto, 
-                    <span name="attr_ataqueDano"></span>
-                    de dano de
-                    <span name="attr_ataqueTipo"></span>
+                    <div class="ataque-nome">
+                      <span name="attr_ataqueNome"></span>
+                    </div>
+                    <div>
+                      <span name="attr_ataqueBonus"></span>
+                      para acerto, 
+                      <span name="attr_ataqueDano"></span>
+                      de dano de
+                      <span name="attr_ataqueTipo"></span>
+                    </div>
                   </button>
                 </div>
               </fieldset>

@@ -238,6 +238,39 @@
   display: none;
 }
 
+.sheet-Ataques .sheet-editavel .sheet-ataque-editando {
+  width: 20px;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-ataque-nome {
+  display: inline-block;
+  width: calc(100% - 23px);
+  padding: 1px 0;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-ataque-editando ~ .sheet-editando {
+  display: none;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-ataque-editando:checked ~ .sheet-editando {
+  display: flex;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando {
+  margin-bottom: 3px;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando > div input {
+  width: 90%;
+  text-align: center;
+  padding: 1px 0;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando > div .sheet-label {
+  font-size: 9px;
+  text-align: center;
+}
+
 .sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button {
   font-size: 13px;
   padding: 0;
@@ -246,76 +279,21 @@
   text-align: left;
 }
 
+.sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button .sheet-ataque-nome {
+  font-weight: bold;
+}
+
+.sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button .sheet-ataque-nome span {
+  text-transform: unset;
+}
+
+.sheet-Ataques .sheet-nao-editavel span {
+  text-transform: lowercase;
+}
+
 .sheet-Ataques .sheet-title {
   text-align: center;
-  /* border-top: 1px solid #000; */
 }
-
-/* .sheet-Ataques .sheet-ataques-header {
-  font-size: 11px;
-  text-align: center;
-}
-
-.sheet-Ataques .sheet-ataques-header .sheet-title {
-  text-align: left;
-}
-
-.sheet-Ataques .sheet-each-ataque {
-  margin-bottom: 5px;
-}
-
-.sheet-Ataques .sheet-each-ataque input[type=text] {
-  width: 80%;
-  text-align: center;
-  padding-bottom: 0;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-dicefontd20 {
-  font-family: "dicefontd20";
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=text] {
-  width: 95%;
-  margin-left: 0;
-  text-align: left;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox] {
-  display: none;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox] + input {
-  display: none;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox] + input + button {
-  display: block;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox]:checked + input {
-  display: block;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome input[type=checkbox]:checked + input + button {
-  display: none;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome .sheet-ataque-nome-button {
-  font-size: 13px;
-  border-bottom: 1px solid #000;
-  border-radius: 0px;
-  width: 95%;
-  text-align: left;
-  margin-left: 0;
-  padding: 0;
-  padding-top: 4px;
-}
-
-.sheet-Ataques .sheet-each-ataque .sheet-ataque-nome .sheet-ataque-nome-button span {
-  display: block;
-  height: 18px;
-} */
-
 /* === DEFESA === */
 
 .sheet-Defesa {
