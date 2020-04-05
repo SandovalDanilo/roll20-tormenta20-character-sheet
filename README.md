@@ -4,9 +4,9 @@ Temporary Roll20 Character Sheet for Tormenta20 RPG system.
 
 ### TODO
 
-[ ] Descanso
-[ ] Melhorar características
-[ ] Modificadores
-[ ] Ações
-[ ] CD alvo, teste de resistência
-[ ] Aba pra magia?
+- [ ] Descanso
+- [ ] Melhorar características
+- [ ] Modificadores
+- [ ] Ações
+- [ ] CD alvo, teste de resistência
+- [ ] Aba pra magia?
