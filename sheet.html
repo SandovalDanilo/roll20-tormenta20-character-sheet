@@ -1,6 +1,6 @@
 <div class="Ficha">
-  <input type="hidden" name="attr_first_open" value="1" />
-  <input type="hidden" name="attr_version" value="2" />
+  <input type="hidden" name="attr_first_open" value="0" />
+  <input type="hidden" name="attr_version" value="1" />
 
   <div class="Header d-flex">
     <div class="basic-info f-2">
@@ -248,8 +248,8 @@
                     <input type="hidden" name="attr_ataqueBonusInt" />
                     <input type="hidden" name="attr_ataqueDanoDados" />
                     <input type="hidden" name="attr_ataqueDanoMod" />
-                    <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
-                    <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
+                    <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" value="20" />
+                    <input type="hidden" name="attr_ataqueCriticoMultiplicador" value="2" />
 
                     <div class="d-flex f-1">
                       <div class="f-2">
@@ -302,9 +302,9 @@
                       <input type="checkbox" name="attr_ataqueDanoExtraAtivoCheck" value="1" />
                       <input type="hidden" name="attr_ataqueDanoExtraAtivo" />
                       Dano
-                      <input type="text" name="attr_ataqueDanoExtra" placeholder="2d6" />
+                      <input type="text" name="attr_ataqueDanoExtra" value="2d6" placeholder="Dano" />
                       de
-                      <input type="text" name="attr_ataqueDanoExtraTipo" title="Tipo" placeholder="Fogo" />
+                      <input type="text" name="attr_ataqueDanoExtraTipo" title="Tipo" value="Fogo" placeholder="Tipo" />
                     </div>
                   </div>
 
@@ -313,7 +313,7 @@
                 </div>
 
                 <div class="nao-editavel">
-                  <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
+                  <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
                     <div class="ataque-nome">
                       <span name="attr_ataqueNome"></span>
                     </div>
@@ -900,9 +900,7 @@
       <div class="f-1">
         <div class="rolagem">{{acerto}}</div>
         <div class="legenda">
-          {{#critico}}
-          Crítico {{critico}}
-          {{/critico}}
+          Crítico {{criticoMargemAmeaca}}/x{{criticoMultiplicador}}
         </div>
       </div>
       <div class="f-1">
