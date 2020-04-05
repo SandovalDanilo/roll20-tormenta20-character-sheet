@@ -1,6 +1,6 @@
 <div class="Ficha">
   <input type="hidden" name="attr_first_open" value="1" />
-  <input type="hidden" name="attr_version" value="1" />
+  <input type="hidden" name="attr_version" value="2" />
 
   <div class="Header d-flex">
     <div class="basic-info f-2">
@@ -1146,11 +1146,13 @@
     recalculaTotalPericia(pericia);
   });
 
-  // Valores iniciais
   on("sheet:opened", function() {
-    getAttrs(["first_open"], function(values) {
+    getAttrs(["first_open", "version"], function(values) {
+      let newAttrs = {}
+      
+      // Valores iniciais
       if(values.first_open == "1") {
-        const newAttrs = {
+        newAttrs = {
           nivel: "1",
 
           for: "10",
@@ -1200,6 +1202,15 @@
 
         setAttrs(newAttrs);
       }
+
+      // Versões
+      const versao = parseInt(values.version);
+      // 1 -> 2
+      if (versao == 1) {
+        console.log("Updating from 1 to 2");
+        
+      }
+
     });
   });
 </script>
