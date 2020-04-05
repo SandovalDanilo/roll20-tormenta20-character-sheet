@@ -976,7 +976,7 @@
 
   on("change:repeating_ataques:ataqueDano", function(e) {
     let danoDados = e.newValue.match(regexDadoDano)[0];
-    let danoMod = e.newValue.replace(danoDados, "");
+    let danoMod = e.newValue.replace(danoDados, "") || 0;
 
     setAttrs({
       repeating_ataques_ataqueDanoDados: danoDados,
