@@ -243,38 +243,76 @@
 
                   <input type="text" class="ataque-nome" name="attr_ataqueNome" placeholder="Espada curta" />
 
-                  <div class="editando d-flex">
+                  <div class="editando d-flex fd-col">
                     <input type="hidden" name="attr_ataqueBonusInt" />
                     <input type="hidden" name="attr_ataqueDanoDados" />
                     <input type="hidden" name="attr_ataqueDanoMod" />
                     <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" />
                     <input type="hidden" name="attr_ataqueCriticoMultiplicador" />
 
-                    <div class="f-2">
-                      <input type="text" name="attr_ataqueBonus" placeholder="+4" />
-                      <div class="label">Acerto</div>
+                    <div class="d-flex f-1">
+                      <div class="f-2">
+                        <input type="text" name="attr_ataqueBonus" placeholder="+4" />
+                        <div class="label">Acerto</div>
+                      </div>
+                      <div class="f-2">
+                        <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
+                        <div class="label">Dano</div>
+                      </div>
+                      <div class="f-2">
+                        <input type="text" name="attr_ataqueCritico" placeholder="19/x2" />
+                        <div class="label">Crítico</div>
+                      </div>
+                      <div class="f-3">
+                        <input type="text" name="attr_ataqueTipo" placeholder="Corte" />
+                        <div class="label">Tipo</div>
+                      </div>
+                      <div class="f-3">
+                        <input type="text" name="attr_ataqueAlcance" placeholder="Médio" />
+                        <div class="label">Alcance</div>
+                      </div>
                     </div>
-                    <div class="f-2">
-                      <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
-                      <div class="label">Dano</div>
+
+                    <div class="d-flex f-1 resistencia">
+                      <input type="checkbox" name="attr_ataqueTesteResistenciaAtivoCheck" value="1" />
+                      <input type="hidden" name="attr_ataqueTesteResistenciaAtivo" />
+                      <input type="hidden" name="attr_ataqueTesteResistenciaTotalCD" />
+
+                      Teste de
+                      <input type="text" title="Resistência" class="pericia" name="attr_ataqueTesteResistenciaPericia" value="Fortitude" />
+                      &nbsp;(CD
+                      <input type="text" title="Base" name="attr_ataqueTesteResistenciaBaseCD" value="10" />
+                      +
+                      <input type="text" title="Metade do nível" name="attr_ataqueTesteResistenciaMetadeNivelCD" value="1" />
+                      +
+                      <select name="attr_ataqueTesteResistenciaAtributoCD">
+                        <option>FOR</option>
+                        <option>DES</option>
+                        <option>CON</option>
+                        <option>INT</option>
+                        <option>SAB</option>
+                        <option>CAR</option>
+                      </select>
+                      +
+                      <input type="text" name="attr_ataqueTesteResistenciaBonusCD" title="Bônus" />)
                     </div>
-                    <div class="f-2">
-                      <input type="text" name="attr_ataqueCritico" placeholder="19/x2" />
-                      <div class="label">Crítico</div>
+
+                    <div class="d-flex f-1 dano-extra">
+                      <input type="checkbox" name="attr_ataqueDanoExtraAtivoCheck" value="1" />
+                      <input type="hidden" name="attr_ataqueDanoExtraAtivo" />
+                      Dano
+                      <input type="text" name="attr_ataqueDanoExtra" placeholder="2d6" />
+                      de
+                      <input type="text" name="attr_ataqueDanoExtraTipo" title="Tipo" placeholder="Fogo" />
                     </div>
-                    <div class="f-3">
-                      <input type="text" name="attr_ataqueTipo" placeholder="Corte" />
-                      <div class="label">Tipo</div>
-                    </div>
-                    <div class="f-3">
-                      <input type="text" name="attr_ataqueAlcance" placeholder="Médio" />
-                      <div class="label">Alcance</div>
-                    </div>
+                  </div>
+
+                  <div class="d-flex">
                   </div>
                 </div>
 
                 <div class="nao-editavel">
-                  <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}}">
+                  <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{critico=@{ataqueCritico}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
                     <div class="ataque-nome">
                       <span name="attr_ataqueNome"></span>
                     </div>
@@ -874,6 +912,38 @@
         <div class="legenda">{{tipo}}</div>
       </div>
     </div>
+    {{#testeResistenciaAtivo}}
+    <div class="resistencia">
+      Teste de Resistência
+      <div class="d-flex resultado">
+        <div class="f-1">
+          <div class="rolagem">
+            {{testeResistenciaPericia}}
+          </div>
+          <div class="legenda">Perícia</div>
+        </div>
+        <div class="f-1">
+          <div class="rolagem">
+            {{testeResistenciaTotalCD}}
+          </div>
+          <div class="legenda">CD</div>
+        </div>
+      </div>
+    </div>
+    {{/testeResistenciaAtivo}}
+    {{#danoExtraAtivo}}
+    <div class="dano-extra">
+      Dano
+      <div class="d-flex resultado">
+        <div class="f-1">
+          <div class="rolagem">
+            {{danoExtra}}
+          </div>
+          <div class="legenda">{{danoExtraTipo}}</div>
+        </div>
+      </div>
+    </div>
+    {{/danoExtraAtivo}}
   </div>
 </rolltemplate>
 
@@ -890,16 +960,6 @@
     setAttrs({
       ataqueEditavel: e.newValue
     });
-    // getSectionIDs("ataques", ids => {
-    //   let newAttrs = {}
-    //
-    //   ids.forEach(id => {
-    //     newAttrs["repeating_ataques_"+id+"_ataqueEditavel"] = e.newValue
-    //   })
-    //
-    //   // console.log(newAttrs);
-    //   setAttrs(newAttrs);
-    // })
   })
 
   const onChangeAtributo = Atributos.map(a => "change:"+a).join(" ");
@@ -948,6 +1008,33 @@
     setAttrs({
       repeating_ataques_ataqueBonusInt: parseInt(e.newValue) || 0
     });
+  });
+
+  on("change:repeating_ataques:ataqueTesteResistenciaAtivoCheck", e => {
+    setAttrs({
+      repeating_ataques_ataqueTesteResistenciaAtivo: (e.newValue == "1") ? "1" : ""
+    })
+  })
+
+  on("change:repeating_ataques:ataqueDanoExtraAtivoCheck", e => {
+    setAttrs({
+      repeating_ataques_ataqueDanoExtraAtivo: (e.newValue == "1") ? "1" : ""
+    })
+  })
+  
+  const onChangeAtaqueResistenciaCD = ["ataqueTesteResistenciaBaseCD", "ataqueTesteResistenciaMetadeNivelCD", "ataqueTesteResistenciaAtributoCD", "ataqueTesteResistenciaBonusCD"].map(a => "change:repeating_ataques:"+a).join(" ")
+  on(onChangeAtaqueResistenciaCD, e => {
+    getAttrs(["repeating_ataques_ataqueTesteResistenciaAtributoCD"], v => {
+      const atributoMod = (v["repeating_ataques_ataqueTesteResistenciaAtributoCD"]+"_mod").toLowerCase();
+      
+      getAttrs(["repeating_ataques_ataqueTesteResistenciaBaseCD", "repeating_ataques_ataqueTesteResistenciaMetadeNivelCD", "repeating_ataques_ataqueTesteResistenciaBonusCD", atributoMod], values => {
+        const total = Object.values(values).filter((v) => v).map(v => parseInt(v)).reduce((a, b) => a+b, 0)
+
+        setAttrs({
+          repeating_ataques_ataqueTesteResistenciaTotalCD: total
+        })
+      })
+    })
   });
 
   // Defesa

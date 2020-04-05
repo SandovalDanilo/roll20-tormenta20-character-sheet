@@ -254,6 +254,7 @@
 
 .sheet-Ataques .sheet-editavel .sheet-ataque-editando:checked ~ .sheet-editando {
   display: flex;
+  background-color: #eee;
 }
 
 .sheet-Ataques .sheet-editavel .sheet-editando {
@@ -264,11 +265,44 @@
   width: 90%;
   text-align: center;
   padding: 1px 0;
+  background: none;
 }
 
 .sheet-Ataques .sheet-editavel .sheet-editando > div .sheet-label {
   font-size: 9px;
   text-align: center;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia input[type=checkbox],
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-dano-extra input[type=checkbox] {
+  width: 20px;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia input[type=text],
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-dano-extra input[type=text] {
+  width: 20px;
+  padding: 0px;
+  margin: 0;
+  height: 18px;
+  background: none;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia input.sheet-pericia[type=text],
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-dano-extra input[type=text] {
+  width: 70px;
+}
+
+.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia select {
+  width: fit-content;
+  padding: 0px;
+  margin: 0 3px;
+  border: none;
+  border-bottom: 1px solid #000;
+  border-radius: unset;
+  -webkit-appearance: none;
+  height: 18px;
+  padding-bottom: 3px;
+  background: none;
 }
 
 .sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button {
@@ -449,6 +483,8 @@
   margin-top: 5px;
 }
 
+/* === ROLL TEMPLATE - ATAQUE === */
+
 .sheet-rolltemplate-ataque .sheet-template-ataque {
   font-family: 'Source Sans Pro';
   background-color: #fff;
@@ -493,6 +529,14 @@
 .sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resultado .sheet-legenda {
   font-size: 12px;
   font-style: italic;
+}
+
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resistencia,
+.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-dano-extra {
+  border-top: 1px solid #000;
+  margin-top: 5px;
+  text-align: center;
+  padding-top: 3px;
 }
 
 .sheet-rolltemplate-ataque .sheet-template-ataque .sheet-d-flex {
