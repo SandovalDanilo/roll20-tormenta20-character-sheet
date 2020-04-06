@@ -217,85 +217,74 @@
   font-size: 10px;
 }
 
-/* === ATAQUES === */
+/* === ATAQUES / HABILIDADES / MAGIAS === */
 
-.sheet-Ataques {
+.sheet-rollables {
   border: 1px solid #000;
   margin: 5px;
   padding: 5px;
 }
 
-.sheet-Ataques input.sheet-ataque-editavel ~ .repcontainer .sheet-nao-editavel,
-.sheet-Ataques input.sheet-ataque-editavel:checked ~ .repcontrol,
-.sheet-Ataques input.sheet-ataque-editavel:checked ~ .repcontainer .sheet-editavel {
+.sheet-rollables input.sheet-rollable-editavel ~ .repcontainer .sheet-nao-editavel,
+.sheet-rollables input.sheet-rollable-editavel:checked ~ .repcontrol,
+.sheet-rollables input.sheet-rollable-editavel:checked ~ .repcontainer .sheet-editavel {
   display: block;
 }
 
-.sheet-Ataques input.sheet-ataque-editavel,
-.sheet-Ataques input.sheet-ataque-editavel:checked ~ .repcontainer .sheet-nao-editavel,
-.sheet-Ataques input.sheet-ataque-editavel ~ .repcontrol,
-.sheet-Ataques input.sheet-ataque-editavel ~ .repcontainer .sheet-editavel {
+.sheet-rollables input.sheet-rollable-editavel,
+.sheet-rollables input.sheet-rollable-editavel:checked ~ .repcontainer .sheet-nao-editavel,
+.sheet-rollables input.sheet-rollable-editavel ~ .repcontrol,
+.sheet-rollables input.sheet-rollable-editavel ~ .repcontainer .sheet-editavel {
   display: none;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-ataque-editando {
+.sheet-rollables .sheet-editavel .sheet-rollable-editando {
   width: 20px;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-ataque-nome {
+.sheet-rollables .sheet-editavel .sheet-rollable-nome {
   display: inline-block;
   width: calc(100% - 23px);
   padding: 1px 0;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-ataque-editando ~ .sheet-editando {
+.sheet-rollables .sheet-editavel .sheet-rollable-editando ~ .sheet-editando {
   display: none;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-ataque-editando:checked ~ .sheet-editando {
+.sheet-rollables .sheet-editavel .sheet-rollable-editando:checked ~ .sheet-editando {
   display: flex;
   background-color: #eee;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-editando {
+.sheet-rollables .sheet-editavel .sheet-editando {
   margin-bottom: 3px;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-editando > div input {
-  width: 90%;
-  text-align: center;
-  padding: 1px 0;
-  background: none;
-}
-
-.sheet-Ataques .sheet-editavel .sheet-editando > div .sheet-label {
+.sheet-rollables .sheet-editavel .sheet-editando > div .sheet-label {
   font-size: 9px;
   text-align: center;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia input[type=checkbox],
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-dano-extra input[type=checkbox] {
+.sheet-rollables .sheet-editavel .sheet-editando input[type=checkbox] {
   width: 20px;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia input[type=text],
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-dano-extra input[type=text] {
-  width: 20px;
+.sheet-rollables .sheet-editavel .sheet-editando input[type=text] {
+  width: 70px;
   padding: 0px;
   margin: 0;
   height: 18px;
   background: none;
+  text-align: center;
+  line-height: 100%;
+  display: inline-block;
 }
 
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia input.sheet-pericia[type=text],
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-dano-extra input[type=text] {
-  width: 70px;
-}
-
-.sheet-Ataques .sheet-editavel .sheet-editando .sheet-resistencia select {
+.sheet-rollables .sheet-editavel .sheet-editando select {
   width: fit-content;
   padding: 0px;
-  margin: 0 3px;
+  margin: 0;
   border: none;
   border-bottom: 1px solid #000;
   border-radius: unset;
@@ -303,9 +292,45 @@
   height: 18px;
   padding-bottom: 3px;
   background: none;
+  text-align: center;
+  text-align-last: center;
 }
 
-.sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button {
+.sheet-rollables .sheet-editavel .sheet-editando textarea {
+  width: auto;
+  height: 55px;
+  background: none;
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #000;
+  border-top: none;
+}
+
+.sheet-rollables .sheet-editavel .sheet-editando .sheet-ataque input[type=text] {
+  width: 90%;
+}
+
+.sheet-rollables .sheet-editavel .sheet-editando .sheet-resistencia input[type=text] {
+  width: 20px;
+}
+
+.sheet-rollables .sheet-editavel .sheet-editando .sheet-origem input[type=text] {
+  width: 115px;
+}
+
+.sheet-rollables .sheet-editavel .sheet-editando .sheet-custo input[type=text] {
+  width: 20px;
+}
+
+.sheet-rollables .sheet-editavel .sheet-editando .sheet-resistencia input[type=text].sheet-pericia {
+  width: 70px;
+}
+
+.sheet-rollables .sheet-editavel .sheet-editando input[type=text].sheet-dados {
+  width: 30px;
+}
+
+.sheet-rollables .sheet-nao-editavel .sheet-rollable-nome-button {
   font-size: 13px;
   padding: 0;
   margin: 0;
@@ -313,19 +338,19 @@
   text-align: left;
 }
 
-.sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button .sheet-ataque-nome {
+.sheet-rollables .sheet-nao-editavel .sheet-rollable-nome-button .sheet-rollable-nome {
   font-weight: bold;
 }
 
-.sheet-Ataques .sheet-nao-editavel .sheet-ataque-nome-button .sheet-ataque-nome span {
+.sheet-rollables .sheet-nao-editavel .sheet-rollable-nome-button .sheet-rollable-nome span {
   text-transform: unset;
 }
 
-.sheet-Ataques .sheet-nao-editavel span {
+.sheet-rollables .sheet-nao-editavel span {
   text-transform: lowercase;
 }
 
-.sheet-Ataques .sheet-title {
+.sheet-rollables .sheet-title {
   text-align: center;
 }
 /* === DEFESA === */
@@ -396,7 +421,7 @@
 
 /* === HABILIDADES / MAGIAS === */
 
-.sheet-Habilidades {
+/* .sheet-Habilidades {
   border: 1px solid #000;
   margin: 5px;
   padding: 5px;
@@ -429,7 +454,7 @@
   height: auto;
   margin-bottom: 0px;
   margin-left: 5px;
-}
+} */
 
 /* === EQUIPAMENTO / PROFICIENCIAS === */
 

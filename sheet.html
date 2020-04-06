@@ -234,41 +234,50 @@
         </div>
 
         <div class="f-3">
-          <div class="Ataques">
-            <div class="">
-              <input type="checkbox" class="ataque-editavel" name="attr_ataqueEditavel" value="1" />
+          <div class="rollables">
+            <div class="Ataques">
+              <input type="checkbox" class="rollable-editavel" name="attr_ataqueEditavel" value="1" />
               
               <fieldset class="repeating_ataques">
                 <div class="editavel">
-                  <input type="checkbox" class="ataque-editando" name="attr_ataqueEditando" />
+                  <input type="checkbox" class="rollable-editando" name="attr_ataqueEditando" />
 
-                  <input type="text" class="ataque-nome" name="attr_ataqueNome" placeholder="Espada curta" />
+                  <input type="text" class="rollable-nome" name="attr_ataqueNome" placeholder="Espada curta" />
 
                   <div class="editando d-flex fd-col">
                     <input type="hidden" name="attr_ataqueBonusInt" />
-                    <input type="hidden" name="attr_ataqueDanoDados" />
-                    <input type="hidden" name="attr_ataqueDanoMod" />
+                    <input type="hidden" name="attr_ataqueDanoAtributoMod" value="0" />
                     <input type="hidden" name="attr_ataqueCriticoMargemAmeaca" value="20" />
                     <input type="hidden" name="attr_ataqueCriticoMultiplicador" value="2" />
 
-                    <div class="d-flex f-1">
+                    <div class="d-flex ataque f-1">
                       <div class="f-2">
                         <input type="text" name="attr_ataqueBonus" placeholder="+4" />
                         <div class="label">Acerto</div>
                       </div>
-                      <div class="f-2">
-                        <input type="text" name="attr_ataqueDano" placeholder="1d6+2" />
+                      <div class="f-3">
+                        <input type="text" class="dados" name="attr_ataqueDanoDados" placeholder="1d6" />
+                        +
+                        <select name="attr_ataqueDanoAtributo">
+                          <option>--</option>
+                          <option value="for_mod">FOR</option>
+                          <option value="des_mod">DES</option>
+                          <option value="con_mod">CON</option>
+                          <option value="int_mod">INT</option>
+                          <option value="sab_mod">SAB</option>
+                          <option value="car_mod">CAR</option>
+                        </select>
                         <div class="label">Dano</div>
                       </div>
                       <div class="f-2">
-                        <input type="text" name="attr_ataqueCritico" placeholder="19/x2" />
+                        <input type="text" name="attr_ataqueCritico" placeholder="20/x2" />
                         <div class="label">Crítico</div>
                       </div>
                       <div class="f-3">
                         <input type="text" name="attr_ataqueTipo" placeholder="Corte" />
                         <div class="label">Tipo</div>
                       </div>
-                      <div class="f-3">
+                      <div class="f-2">
                         <input type="text" name="attr_ataqueAlcance" placeholder="Médio" />
                         <div class="label">Alcance</div>
                       </div>
@@ -277,50 +286,64 @@
                     <div class="d-flex f-1 resistencia">
                       <input type="checkbox" name="attr_ataqueTesteResistenciaAtivoCheck" value="1" />
                       <input type="hidden" name="attr_ataqueTesteResistenciaAtivo" />
-                      <input type="hidden" name="attr_ataqueTesteResistenciaTotalCD" />
+                      <input type="hidden" name="attr_ataqueTesteResistenciaTotalCD" value="11" />
 
                       Teste de
                       <input type="text" title="Resistência" class="pericia" name="attr_ataqueTesteResistenciaPericia" value="Fortitude" />
-                      &nbsp;(CD
+                      &nbsp;(CD&nbsp;
+                      <select title="Modificador do atributo" name="attr_ataqueTesteResistenciaAtributoCD">
+                        <option>--</option>
+                        <option value="for_mod">FOR</option>
+                        <option value="des_mod">DES</option>
+                        <option value="con_mod">CON</option>
+                        <option value="int_mod">INT</option>
+                        <option value="sab_mod">SAB</option>
+                        <option value="car_mod">CAR</option>
+                      </select>
+                      +
                       <input type="text" title="Base" name="attr_ataqueTesteResistenciaBaseCD" value="10" />
                       +
                       <input type="text" title="Metade do nível" name="attr_ataqueTesteResistenciaMetadeNivelCD" value="1" />
                       +
-                      <select name="attr_ataqueTesteResistenciaAtributoCD">
-                        <option>FOR</option>
-                        <option>DES</option>
-                        <option>CON</option>
-                        <option>INT</option>
-                        <option>SAB</option>
-                        <option>CAR</option>
-                      </select>
-                      +
-                      <input type="text" name="attr_ataqueTesteResistenciaBonusCD" title="Bônus" />)
+                      <input type="text" name="attr_ataqueTesteResistenciaBonusCD" title="Outros bônus" value="0" />)
                     </div>
 
                     <div class="d-flex f-1 dano-extra">
                       <input type="checkbox" name="attr_ataqueDanoExtraAtivoCheck" value="1" />
                       <input type="hidden" name="attr_ataqueDanoExtraAtivo" />
+                      <input type="hidden" name="attr_ataqueDanoExtraAtributoMod" value="0" />
+
                       Dano
-                      <input type="text" name="attr_ataqueDanoExtra" value="2d6" placeholder="Dano" />
+                      <input type="text" class="dados" name="attr_ataqueDanoExtra" value="1d6" placeholder="1d6" />
+                      +
+                      <select name="attr_ataqueDanoExtraAtributo">
+                        <option value="">--</option>
+                        <option value="for_mod">FOR</option>
+                        <option value="des_mod">DES</option>
+                        <option value="con_mod">CON</option>
+                        <option value="int_mod">INT</option>
+                        <option value="sab_mod">SAB</option>
+                        <option value="car_mod">CAR</option>
+                      </select>
+                      +
+                      <input type="text" class="dados" name="attr_ataqueDanoExtraOutros" value="0" title="Outros bônus" />
                       de
                       <input type="text" name="attr_ataqueDanoExtraTipo" title="Tipo" value="Fogo" placeholder="Tipo" />
                     </div>
                   </div>
-
-                  <div class="d-flex">
-                  </div>
                 </div>
 
                 <div class="nao-editavel">
-                  <button type="roll" class="ataque-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoMod}]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
-                    <div class="ataque-nome">
+                  <button type="roll" class="rollable-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}+@{ataqueDanoExtraAtributoMod}+@{ataqueDanoExtraOutros}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
+                    <div class="rollable-nome">
                       <span name="attr_ataqueNome"></span>
                     </div>
                     <div>
                       <span name="attr_ataqueBonus"></span>
                       para acerto, 
-                      <span name="attr_ataqueDano"></span>
+                      <span name="attr_ataqueDanoDados"></span>
+                      +
+                      <span name="attr_ataqueDanoAtributoMod"></span>
                       de dano de
                       <span name="attr_ataqueTipo"></span>
                     </div>
@@ -333,33 +356,120 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="Habilidades">
-        <div class="title">Habilidades e Magias</div>
-        <fieldset class="repeating_habilidades">
-          <div class="d-flex each-habilidade">
-            <div class="f-1 d-flex fd-col">
-              <div class="input-wrapper">
-                <input type="text" name="attr_habilidadeNome" placeholder="Fúria" />
-              </div>
-              <div class="input-wrapper d-flex">
-                <div class="f-9">
-                  <input type="text" name="attr_habilidadeOrigem" placeholder="Bárbaro 1" />
+          <div class="rollables">
+            <div class="Habilidades">
+              <input type="checkbox" class="rollable-editavel" name="attr_habilidadeEditavel" value="1" />
+              
+              <fieldset class="repeating_habilidades">
+                <div class="editavel">
+                  <input type="checkbox" class="rollable-editando" name="attr_habilidadeEditando" />
+
+                  <input type="text" class="rollable-nome" name="attr_habilidadeNome" placeholder="Espada curta" />
+
+                  <div class="editando d-flex fd-col">
+                    <div class="f-1 d-flex">
+                      <div class="f-3 origem">
+                        Origem: <input type="text" name="habilidadeOrigem" placeholder="Bárbaro 1" />
+                      </div>
+                      <div class="f-2 custo">
+                        Custo: <input type="text" name="habilidadeCusto" placeholder="2" /> PM
+                      </div>
+                    </div>
+
+                    <div class="d-flex f-1 resistencia">
+                      <input type="checkbox" name="attr_habilidadeTesteResistenciaAtivoCheck" value="1" />
+                      <input type="hidden" name="attr_habilidadeTesteResistenciaAtivo" />
+                      <input type="hidden" name="attr_habilidadeTesteResistenciaTotalCD" value="11" />
+
+                      Teste de
+                      <input type="text" title="Resistência" class="pericia" name="attr_habilidadeTesteResistenciaPericia" value="Fortitude" />
+                      &nbsp;(CD&nbsp;
+                      <select title="Modificador do atributo" name="attr_habilidadeTesteResistenciaAtributoCD">
+                        <option>--</option>
+                        <option value="for_mod">FOR</option>
+                        <option value="des_mod">DES</option>
+                        <option value="con_mod">CON</option>
+                        <option value="int_mod">INT</option>
+                        <option value="sab_mod">SAB</option>
+                        <option value="car_mod">CAR</option>
+                      </select>
+                      +
+                      <input type="text" title="Base" name="attr_habilidadeTesteResistenciaBaseCD" value="10" />
+                      +
+                      <input type="text" title="Metade do nível" name="attr_habilidadeTesteResistenciaMetadeNivelCD" value="1" />
+                      +
+                      <input type="text" name="attr_habilidadeTesteResistenciaBonusCD" title="Outros bônus" value="0" />)
+                    </div>
+
+                    <div class="d-flex f-1 dano-extra">
+                      <input type="checkbox" name="attr_habilidadeDanoExtraAtivoCheck" value="1" />
+                      <input type="hidden" name="attr_habilidadeDanoExtraAtivo" />
+                      <input type="hidden" name="attr_habilidadeDanoExtraAtributoMod" value="0" />
+
+                      Dano
+                      <input type="text" class="dados" name="attr_habilidadeDanoExtra" value="2d6" placeholder="Dano" />
+                      +
+                      <select name="attr_habilidadeDanoExtraAtributo">
+                        <option>--</option>
+                        <option value="for_mod">FOR</option>
+                        <option value="des_mod">DES</option>
+                        <option value="con_mod">CON</option>
+                        <option value="int_mod">INT</option>
+                        <option value="sab_mod">SAB</option>
+                        <option value="car_mod">CAR</option>
+                      </select>
+                      +
+                      <input type="text" class="dados" name="attr_habilidadeDanoExtraOutros" value="0" title="Outros bônus" />
+                      de
+                      <input type="text" name="attr_habilidadeDanoExtraTipo" title="Tipo" value="Fogo" placeholder="Tipo" />
+                    </div>
+
+                    <div class="d-flex f-1 dano-extra">
+                      <input type="checkbox" name="attr_habilidadeCuraAtivoCheck" value="1" />
+                      <input type="hidden" name="attr_habilidadeCuraAtivo" />
+                      <input type="hidden" name="attr_habilidadeCuraAtributoMod" value="0" />
+
+                      Cura
+                      <input type="text" class="dados" name="attr_habilidadeCura" value="2d6" placeholder="Dano" />
+                      +
+                      <select name="attr_habilidadeCuraAtributo">
+                        <option>--</option>
+                        <option value="for_mod">FOR</option>
+                        <option value="des_mod">DES</option>
+                        <option value="con_mod">CON</option>
+                        <option value="int_mod">INT</option>
+                        <option value="sab_mod">SAB</option>
+                        <option value="car_mod">CAR</option>
+                      </select>
+                      +
+                      <input type="text" class="dados" name="attr_habilidadeCuraOutros" value="0" title="Outros bônus" />
+                    </div>
+
+                    <div class="f-1 d-flex">
+                      <textarea class="f-1" name="attr_habilidadeDescricao" placeholder="Você pode gastar 3 PM para invocar uma fúria selvagem, tornando-se temível em combate."></textarea>
+                    </div>
+                  </div>
                 </div>
-                <div class="f-1">
-                  <button type="roll" value="&{template:default} {{name=@{habilidadeNome}}} {{Origem=@{habilidadeOrigem}}} {{Descrição=@{habilidadeDescricao}}}">
-                    <span class="pictos">q</span>
+
+                <div class="nao-editavel">
+                  <button type="roll" class="rollable-nome-button" value="&{template:habilidade} {{nome=@{habilidadeNome}}}">
+                    <div class="rollable-nome">
+                      <span name="attr_habilidadeNome"></span>
+                    </div>
+                    <div>
+                      
+                    </div>
                   </button>
                 </div>
+              </fieldset>
+
+              <div class="title">
+                Habilidades
               </div>
             </div>
-            <div class="f-1 d-flex input-wrapper">
-              <textarea class="f-1" name="attr_habilidadeDescricao" placeholder="Você pode gastar 3 PM para invocar uma fúria selvagem, tornando-se temível em combate."></textarea>
-            </div>
           </div>
-        </fieldset>
+        </div>
       </div>
 
       <div class="d-flex">
@@ -957,7 +1067,8 @@
 
   on("change:editavel", e => {
     setAttrs({
-      ataqueEditavel: e.newValue
+      ataqueEditavel: e.newValue,
+      habilidadeEditavel: e.newValue
     });
   })
 
@@ -972,14 +1083,33 @@
     setAttrs(newAttrs);
   });
 
-  on("change:repeating_ataques:ataqueDano", function(e) {
-    let danoDados = e.newValue.match(regexDadoDano)[0];
-    let danoMod = e.newValue.replace(danoDados, "") || 0;
+  // Ataques
+  on("change:repeating_ataques:ataqueDanoAtributo", function(e) {
+    if (Atributos.map(a => a+"_mod").includes(e.newValue)) {
+      getAttrs([e.newValue], values => {
+        setAttrs({
+          repeating_ataques_ataqueDanoAtributoMod: parseInt(values[e.newValue])
+        })
+      })
+    } else {
+      setAttrs({
+        repeating_ataques_ataqueDanoAtributoMod: 0
+      })
+    }
+  });
 
-    setAttrs({
-      repeating_ataques_ataqueDanoDados: danoDados,
-      repeating_ataques_ataqueDanoMod: parseInt(danoMod)
-    });
+  on("change:repeating_ataques:ataqueDanoExtraAtributo", function(e) {
+    if (Atributos.map(a => a+"_mod").includes(e.newValue)) {
+      getAttrs([e.newValue], values => {
+        setAttrs({
+          repeating_ataques_ataqueDanoExtraAtributoMod: parseInt(values[e.newValue])
+        })
+      })
+    } else {
+      setAttrs({
+        repeating_ataques_ataqueDanoExtraAtributoMod: 0
+      })
+    }
   });
 
   on("change:repeating_ataques:ataqueCritico", function(e) {
@@ -1024,13 +1154,55 @@
   const onChangeAtaqueResistenciaCD = ["ataqueTesteResistenciaBaseCD", "ataqueTesteResistenciaMetadeNivelCD", "ataqueTesteResistenciaAtributoCD", "ataqueTesteResistenciaBonusCD"].map(a => "change:repeating_ataques:"+a).join(" ")
   on(onChangeAtaqueResistenciaCD, e => {
     getAttrs(["repeating_ataques_ataqueTesteResistenciaAtributoCD"], v => {
-      const atributoMod = (v["repeating_ataques_ataqueTesteResistenciaAtributoCD"]+"_mod").toLowerCase();
+      const atributoMod = (v["repeating_ataques_ataqueTesteResistenciaAtributoCD"]).toLowerCase();
       
       getAttrs(["repeating_ataques_ataqueTesteResistenciaBaseCD", "repeating_ataques_ataqueTesteResistenciaMetadeNivelCD", "repeating_ataques_ataqueTesteResistenciaBonusCD", atributoMod], values => {
         const total = Object.values(values).filter((v) => v).map(v => parseInt(v)).reduce((a, b) => a+b, 0)
 
         setAttrs({
           repeating_ataques_ataqueTesteResistenciaTotalCD: total
+        })
+      })
+    })
+  });
+
+  // Habilidades
+  on("change:repeating_habilidades:habilidadeDanoExtraAtributo", function(e) {
+    if (e.newValue) {
+      getAttrs([e.newValue], values => {
+        setAttrs({
+          repeating_habilidades_habilidadeDanoExtraAtributoMod: parseInt(values[e.newValue])
+        })
+      })
+    } else {
+      setAttrs({
+        repeating_habilidades_habilidadeDanoExtraAtributoMod: 0
+      })
+    }
+  });
+
+  on("change:repeating_habilidades:habilidadeTesteResistenciaAtivoCheck", e => {
+    setAttrs({
+      repeating_habilidades_habilidadeTesteResistenciaAtivo: (e.newValue == "1") ? "1" : ""
+    })
+  })
+
+  on("change:repeating_habilidades:habilidadeDanoExtraAtivoCheck", e => {
+    setAttrs({
+      repeating_habilidades_habilidadeDanoExtraAtivo: (e.newValue == "1") ? "1" : ""
+    })
+  })
+  
+  const onChangeHabilidadeResistenciaCD = ["habilidadeTesteResistenciaBaseCD", "habilidadeTesteResistenciaMetadeNivelCD", "habilidadeTesteResistenciaAtributoCD", "habilidadeTesteResistenciaBonusCD"].map(a => "change:repeating_habilidades:"+a).join(" ")
+  on(onChangeHabilidadeResistenciaCD, e => {
+    getAttrs(["repeating_habilidades_habilidadeTesteResistenciaAtributoCD"], v => {
+      const atributoMod = (v["repeating_habilidades_habilidadeTesteResistenciaAtributoCD"]).toLowerCase();
+      
+      getAttrs(["repeating_habilidades_habilidadeTesteResistenciaBaseCD", "repeating_habilidades_habilidadeTesteResistenciaMetadeNivelCD", "repeating_habilidades_habilidadeTesteResistenciaBonusCD", atributoMod], values => {
+        const total = Object.values(values).filter((v) => v).map(v => parseInt(v)).reduce((a, b) => a+b, 0)
+
+        setAttrs({
+          repeating_habilidades_habilidadeTesteResistenciaTotalCD: total
         })
       })
     })
