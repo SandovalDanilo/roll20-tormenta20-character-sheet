@@ -1,5 +1,5 @@
 <div class="Ficha">
-  <input type="hidden" name="attr_first_open" value="0" />
+  <input type="hidden" name="attr_first_open" value="1" />
   <input type="hidden" name="attr_version" value="1" />
 
   <div class="Header d-flex">
@@ -251,22 +251,20 @@
                     <input type="hidden" name="attr_ataqueCriticoMultiplicador" value="2" />
 
                     <div class="d-flex ataque f-1">
-                      <div class="f-2">
+                      <div class="f-1">
                         <input type="text" name="attr_ataqueBonus" placeholder="+4" />
                         <div class="label">Acerto</div>
                       </div>
-                      <div class="f-3">
-                        <input type="text" class="dados" name="attr_ataqueDanoDados" placeholder="1d6" />
-                        +
-                        <select name="attr_ataqueDanoAtributo">
+                      <div class="f-4">
+                        <input type="text" class="dados" name="attr_ataqueDanoDados" placeholder="1d6" />+<select name="attr_ataqueDanoAtributo">
                           <option>--</option>
-                          <option value="for_mod">FOR</option>
-                          <option value="des_mod">DES</option>
-                          <option value="con_mod">CON</option>
-                          <option value="int_mod">INT</option>
-                          <option value="sab_mod">SAB</option>
-                          <option value="car_mod">CAR</option>
-                        </select>
+                          <option value="for">FOR</option>
+                          <option value="des">DES</option>
+                          <option value="con">CON</option>
+                          <option value="int">INT</option>
+                          <option value="sab">SAB</option>
+                          <option value="car">CAR</option>
+                        </select>+<input type="text" class="dados" name="attr_ataqueDanoOutros" value="0" title="Outros" />
                         <div class="label">Dano</div>
                       </div>
                       <div class="f-2">
@@ -334,16 +332,14 @@
                 </div>
 
                 <div class="nao-editavel">
-                  <button type="roll" class="rollable-nome-button" value="&{template:rollable} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}+@{ataqueDanoExtraAtributoMod}+@{ataqueDanoExtraOutros}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
+                  <button type="roll" class="rollable-nome-button" value="&{template:rollable} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoAtributoMod}[@{ataqueDanoAtributo}]+@{ataqueDanoOutros}[outros]]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoAtributoMod}[@{ataqueDanoAtributo}]+@{ataqueDanoOutros}[outros]]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}+@{ataqueDanoExtraAtributoMod}+@{ataqueDanoExtraOutros}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
                     <div class="rollable-nome">
                       <span name="attr_ataqueNome"></span>
                     </div>
                     <div>
                       <span name="attr_ataqueBonus"></span>
                       para acerto, 
-                      <span name="attr_ataqueDanoDados"></span>
-                      +
-                      <span name="attr_ataqueDanoAtributoMod"></span>
+                      <span name="attr_ataqueDanoDados"></span>+<span name="attr_ataqueDanoAtributoMod"></span>+<span name="attr_ataqueDanoOutros"></span>
                       de dano de
                       <span class="lower" name="attr_ataqueTipo"></span>
                     </div>
@@ -462,7 +458,7 @@
                       <span name="attr_habilidadeNome"></span>
                     </div>
                     <div class="ativos">
-                      <span class="teste-resistencia-ativo">Teste de <span name="attr_habilidadeTesteResistenciaPericia"></span> (CD <span name="attr_habilidadeTesteResistenciaTotalCD"></span>)</span><span class="dano-extra-ativo"><span name="attr_habilidadeDanoExtra"></span> + <span name="attr_habilidadeDanoExtraAtributoMod"></span> de dano de <span class="lower" name="attr_habilidadeDanoExtraTipo"></span></span><span class="cura-ativo"><span name="attr_habilidadeCura"></span> + <span name="attr_habilidadeCuraAtributoMod"></span> de cura</span>
+                      <span class="teste-resistencia-ativo">Teste de <span name="attr_habilidadeTesteResistenciaPericia"></span> (CD <span name="attr_habilidadeTesteResistenciaTotalCD"></span>)</span><span class="dano-extra-ativo"><span name="attr_habilidadeDanoExtra"></span>+<span name="attr_habilidadeDanoExtraAtributoMod"></span>+<span name="attr_habilidadeDanoExtraOutros"></span> de dano de <span class="lower" name="attr_habilidadeDanoExtraTipo"></span></span><span class="cura-ativo"><span name="attr_habilidadeCura"></span>+<span name="attr_habilidadeCuraAtributoMod"></span>+<span name="attr_habilidadeCuraOutros"></span> de cura</span>
                     </div>
                   </button>
                 </div>
@@ -473,11 +469,7 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="d-flex">
-        <div class="f-1">
           <div class="Equipamento">
             <div class="title">Equipamento</div>
             <fieldset class="repeating_itens">
@@ -1116,10 +1108,10 @@
 
   // Ataques
   on("change:repeating_ataques:ataqueDanoAtributo", function(e) {
-    if (Atributos.map(a => a+"_mod").includes(e.newValue)) {
-      getAttrs([e.newValue], values => {
+    if (Atributos.includes(e.newValue)) {
+      getAttrs([e.newValue+"_mod"], values => {
         setAttrs({
-          repeating_ataques_ataqueDanoAtributoMod: parseInt(values[e.newValue])
+          repeating_ataques_ataqueDanoAtributoMod: parseInt(values[e.newValue+"_mod"])
         })
       })
     } else {

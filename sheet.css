@@ -296,7 +296,6 @@
   border-radius: unset;
   -webkit-appearance: none;
   height: 18px;
-  padding-bottom: 3px;
   background: none;
   text-align: center;
   text-align-last: center;
@@ -333,7 +332,7 @@
 }
 
 .sheet-rollables .sheet-editavel .sheet-editando input[type=text].sheet-dados {
-  width: 30px;
+  width: 25px;
 }
 
 .sheet-rollables .sheet-nao-editavel .sheet-rollable-nome-button {
