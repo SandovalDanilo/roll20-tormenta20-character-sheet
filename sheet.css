@@ -225,6 +225,12 @@
   padding: 5px;
 }
 
+.sheet-rollables .sheet-Habilidades input.sheet-teste-resistencia-ativo,
+.sheet-rollables .sheet-Habilidades input.sheet-dano-extra-ativo,
+.sheet-rollables .sheet-Habilidades input.sheet-cura-ativo {
+  display: none;
+}
+
 .sheet-rollables input.sheet-rollable-editavel ~ .repcontainer .sheet-nao-editavel,
 .sheet-rollables input.sheet-rollable-editavel:checked ~ .repcontrol,
 .sheet-rollables input.sheet-rollable-editavel:checked ~ .repcontainer .sheet-editavel {
@@ -346,8 +352,26 @@
   text-transform: unset;
 }
 
-.sheet-rollables .sheet-nao-editavel span {
+.sheet-rollables .sheet-nao-editavel span.sheet-lower {
   text-transform: lowercase;
+}
+
+.sheet-rollables .sheet-nao-editavel .sheet-ativos > span {
+  display: none;
+}
+
+.sheet-rollables input.sheet-teste-resistencia-ativo[type=checkbox]:checked ~ .sheet-nao-editavel .sheet-ativos > span.sheet-teste-resistencia-ativo,
+.sheet-rollables input.sheet-dano-extra-ativo[type=checkbox]:checked ~ .sheet-nao-editavel .sheet-ativos > span.sheet-dano-extra-ativo,
+.sheet-rollables input.sheet-cura-ativo[type=checkbox]:checked ~ .sheet-nao-editavel .sheet-ativos > span.sheet-cura-ativo {
+  display: inline;
+}
+
+.sheet-rollables input.sheet-teste-resistencia-ativo[type=checkbox]:checked + input.sheet-dano-extra-ativo[type=checkbox]:checked ~ .sheet-nao-editavel .sheet-ativos > span.sheet-dano-extra-ativo::before {
+  content: ", ";
+}
+
+.sheet-rollables input.sheet-dano-extra-ativo[type=checkbox]:checked + input.sheet-cura-ativo[type=checkbox]:checked ~ .sheet-nao-editavel .sheet-ativos > span.sheet-cura-ativo::before {
+  content: ", ";  
 }
 
 .sheet-rollables .sheet-title {
@@ -419,43 +443,6 @@
   padding-bottom: 1px;
 }
 
-/* === HABILIDADES / MAGIAS === */
-
-/* .sheet-Habilidades {
-  border: 1px solid #000;
-  margin: 5px;
-  padding: 5px;
-}
-
-.sheet-Habilidades .sheet-title {
-  margin-bottom: 5px;
-  text-align: center;
-}
-
-.sheet-Habilidades .sheet-each-habilidade {
-  margin-bottom: 10px;
-}
-
-.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper {
-  padding-right: 5px;
-}
-
-.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper input[type=text] {
-  padding-bottom: 1px;
-}
-
-.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper span.sheet-pictos {
-  font-family: "Pictos";
-}
-
-.sheet-Habilidades .sheet-each-habilidade .sheet-input-wrapper textarea {
-  border: 1px solid #000;
-  width: auto;
-  height: auto;
-  margin-bottom: 0px;
-  margin-left: 5px;
-} */
-
 /* === EQUIPAMENTO / PROFICIENCIAS === */
 
 .sheet-Equipamento,
@@ -510,65 +497,77 @@
 
 /* === ROLL TEMPLATE - ATAQUE === */
 
-.sheet-rolltemplate-ataque .sheet-template-ataque {
+.sheet-rolltemplate-rollable .sheet-template-rollable {
   font-family: 'Source Sans Pro';
   background-color: #fff;
   border: 1px solid #000;
   padding: 3px;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-nome {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-nome {
   font-size: 18px;
   line-height: 150%;
   padding-bottom: 2px;
-  border-bottom: 1px solid #000;
   font-weight: bold;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-nome .sheet-alcance {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-nome .sheet-subtitle {
   font-style: italic;
   font-size: 12px;
   line-height: 100%;
   padding: 3px 0;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-nome .sheet-alcance .sheet-minuscula {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-nome .sheet-subtitle .sheet-minuscula {
   text-transform: lowercase;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-label {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-acerto {
+  border-top: 1px solid #000;
+}
+
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-label {
   font-size: 14px;
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resultado {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-resultado {
   font-size: 20px;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-rolagem {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-rolagem {
   padding-bottom: 5px;
   padding-top: 10px;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resultado .sheet-legenda {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-resultado .sheet-legenda {
   font-size: 12px;
   font-style: italic;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-resistencia,
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-dano-extra {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-resistencia,
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-dano-extra,
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-cura {
   border-top: 1px solid #000;
   margin-top: 5px;
   text-align: center;
   padding-top: 3px;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-d-flex {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-descricao {
+  border-top: 1px solid #000;
+  margin-top: 5px;
+  padding-top: 3px;
+  font-size: 12px;
+  line-height: 110%;
+}
+
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-d-flex {
   display: flex;
 }
 
-.sheet-rolltemplate-ataque .sheet-template-ataque .sheet-f-1 {
+.sheet-rolltemplate-rollable .sheet-template-rollable .sheet-f-1 {
   flex: 1;
   text-align: center;
 }

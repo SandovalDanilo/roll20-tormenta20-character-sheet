@@ -334,7 +334,7 @@
                 </div>
 
                 <div class="nao-editavel">
-                  <button type="roll" class="rollable-nome-button" value="&{template:ataque} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}+@{ataqueDanoExtraAtributoMod}+@{ataqueDanoExtraOutros}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
+                  <button type="roll" class="rollable-nome-button" value="&{template:rollable} {{nome=@{ataqueNome}}} {{acerto=[[1d20cs>@{ataqueCriticoMargemAmeaca}+@{ataqueBonusInt}]]}} {{dano=[[@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{danoCritico=[[@{ataqueCriticoMultiplicador}*@{ataqueDanoDados}+@{ataqueDanoAtributoMod}]]}} {{criticoMargemAmeaca=@{ataqueCriticoMargemAmeaca}}} {{criticoMultiplicador=@{ataqueCriticoMultiplicador}}} {{alcance=@{ataqueAlcance}}} {{tipo=@{ataqueTipo}}} {{testeResistenciaAtivo=@{ataqueTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{ataqueTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{ataqueTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{ataqueDanoExtraAtivo}}} {{danoExtra=[[@{ataqueDanoExtra}+@{ataqueDanoExtraAtributoMod}+@{ataqueDanoExtraOutros}]]}} {{danoExtraTipo=@{ataqueDanoExtraTipo}}}">
                     <div class="rollable-nome">
                       <span name="attr_ataqueNome"></span>
                     </div>
@@ -345,7 +345,7 @@
                       +
                       <span name="attr_ataqueDanoAtributoMod"></span>
                       de dano de
-                      <span name="attr_ataqueTipo"></span>
+                      <span class="lower" name="attr_ataqueTipo"></span>
                     </div>
                   </button>
                 </div>
@@ -362,6 +362,10 @@
               <input type="checkbox" class="rollable-editavel" name="attr_habilidadeEditavel" value="1" />
               
               <fieldset class="repeating_habilidades">
+                <input type="checkbox" class="teste-resistencia-ativo" name="attr_habilidadeTesteResistenciaAtivoCheck" value="1" />
+                <input type="checkbox" class="dano-extra-ativo" name="attr_habilidadeDanoExtraAtivoCheck" value="1" />
+                <input type="checkbox" class="cura-ativo" name="attr_habilidadeCuraAtivoCheck" value="1" />
+
                 <div class="editavel">
                   <input type="checkbox" class="rollable-editando" name="attr_habilidadeEditando" />
 
@@ -370,10 +374,10 @@
                   <div class="editando d-flex fd-col">
                     <div class="f-1 d-flex">
                       <div class="f-3 origem">
-                        Origem: <input type="text" name="habilidadeOrigem" placeholder="Bárbaro 1" />
+                        Origem: <input type="text" name="attr_habilidadeOrigem" placeholder="Bárbaro 1" />
                       </div>
                       <div class="f-2 custo">
-                        Custo: <input type="text" name="habilidadeCusto" placeholder="2" /> PM
+                        Custo: <input type="text" name="attr_habilidadeCusto" placeholder="2" /> PM
                       </div>
                     </div>
 
@@ -453,19 +457,19 @@
                 </div>
 
                 <div class="nao-editavel">
-                  <button type="roll" class="rollable-nome-button" value="&{template:habilidade} {{nome=@{habilidadeNome}}}">
+                  <button type="roll" class="rollable-nome-button" value="&{template:rollable} {{nome=@{habilidadeNome}}} {{origem=@{habilidadeOrigem}}} {{custo=@{habilidadeCusto}}} {{testeResistenciaAtivo=@{habilidadeTesteResistenciaAtivo}}} {{testeResistenciaPericia=@{habilidadeTesteResistenciaPericia}}} {{testeResistenciaTotalCD=@{habilidadeTesteResistenciaTotalCD}}} {{danoExtraAtivo=@{habilidadeDanoExtraAtivo}}} {{danoExtra=[[@{habilidadeDanoExtra}+@{habilidadeDanoExtraAtributoMod}+@{habilidadeDanoExtraOutros}]]}} {{danoExtraTipo=@{habilidadeDanoExtraTipo}}} {{curaAtivo=@{habilidadeCuraAtivo}}} {{cura=[[@{habilidadeCura}+@{habilidadeCuraAtributoMod}+@{habilidadeCuraOutros}]]}} {{descricao=@{habilidadeDescricao}}}">
                     <div class="rollable-nome">
                       <span name="attr_habilidadeNome"></span>
                     </div>
-                    <div>
-                      
+                    <div class="ativos">
+                      <span class="teste-resistencia-ativo">Teste de <span name="attr_habilidadeTesteResistenciaPericia"></span> (CD <span name="attr_habilidadeTesteResistenciaTotalCD"></span>)</span><span class="dano-extra-ativo"><span name="attr_habilidadeDanoExtra"></span> + <span name="attr_habilidadeDanoExtraAtributoMod"></span> de dano de <span class="lower" name="attr_habilidadeDanoExtraTipo"></span></span><span class="cura-ativo"><span name="attr_habilidadeCura"></span> + <span name="attr_habilidadeCuraAtributoMod"></span> de cura</span>
                     </div>
                   </button>
                 </div>
               </fieldset>
 
               <div class="title">
-                Habilidades
+                Habilidades e Magias
               </div>
             </div>
           </div>
@@ -994,33 +998,42 @@
   </div>
 </div>
 
-<rolltemplate class="sheet-rolltemplate-ataque">
-  <div class="template-ataque">
+<rolltemplate class="sheet-rolltemplate-rollable">
+  <div class="template-rollable">
     <div class="nome">
       {{nome}}
-      {{#alcance}}
-        <div class="alcance">Alcance <span class="minuscula">{{alcance}}</span></div>
-      {{/alcance}}
-    </div>
-    <div class="d-flex label">
-      <div class="f-1">Acerto</div>
-      <div class="f-1">Dano</div>
-    </div>
-    <div class="d-flex resultado">
-      <div class="f-1">
-        <div class="rolagem">{{acerto}}</div>
-        <div class="legenda">
-          Crítico {{criticoMargemAmeaca}}/x{{criticoMultiplicador}}
-        </div>
-      </div>
-      <div class="f-1">
-        <div class="rolagem">
-          {{#^rollWasCrit() acerto}} {{dano}} {{/^rollWasCrit() acerto}}
-          {{#rollWasCrit() acerto}} {{danoCritico}} {{/rollWasCrit() acerto}}
-        </div>
-        <div class="legenda">{{tipo}}</div>
+      <div class="subtitle">
+        {{#alcance}}
+          Alcance <span class="minuscula">{{alcance}}</span>
+        {{/alcance}}
+        {{#origem}}
+          {{origem}} / Custo: {{custo}} PM
+        {{/origem}}
       </div>
     </div>
+    {{#acerto}}
+    <div class="acerto">
+      <div class="d-flex label">
+        <div class="f-1">Acerto</div>
+        <div class="f-1">Dano</div>
+      </div>
+      <div class="d-flex resultado">
+        <div class="f-1">
+          <div class="rolagem">{{acerto}}</div>
+          <div class="legenda">
+            Crítico {{criticoMargemAmeaca}}/x{{criticoMultiplicador}}
+          </div>
+        </div>
+        <div class="f-1">
+          <div class="rolagem">
+            {{#^rollWasCrit() acerto}} {{dano}} {{/^rollWasCrit() acerto}}
+            {{#rollWasCrit() acerto}} {{danoCritico}} {{/rollWasCrit() acerto}}
+          </div>
+          <div class="legenda">{{tipo}}</div>
+        </div>
+      </div>  
+    </div>
+    {{/acerto}}
     {{#testeResistenciaAtivo}}
     <div class="resistencia">
       Teste de Resistência
@@ -1053,6 +1066,24 @@
       </div>
     </div>
     {{/danoExtraAtivo}}
+    {{#curaAtivo}}
+    <div class="cura">
+      Cura
+      <div class="d-flex resultado">
+        <div class="f-1">
+          <div class="rolagem">
+            {{cura}}
+          </div>
+          <div class="legenda">PV</div>
+        </div>
+      </div>
+    </div>
+    {{/curaAtivo}}
+    {{#descricao}}
+    <div class="descricao">
+      {{descricao}}
+    </div>
+    {{/descricao}}
   </div>
 </rolltemplate>
 
@@ -1190,6 +1221,12 @@
   on("change:repeating_habilidades:habilidadeDanoExtraAtivoCheck", e => {
     setAttrs({
       repeating_habilidades_habilidadeDanoExtraAtivo: (e.newValue == "1") ? "1" : ""
+    })
+  })
+
+  on("change:repeating_habilidades:habilidadeCuraAtivoCheck", e => {
+    setAttrs({
+      repeating_habilidades_habilidadeCuraAtivo: (e.newValue == "1") ? "1" : ""
     })
   })
   
